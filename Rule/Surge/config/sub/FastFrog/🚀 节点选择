@@ -7,6 +7,7 @@ rename=日本.*特供原生@日本AbemaTV
 rename=香港.*myTVSUPER@香港MyTVSuper
 rename=特供@
 
+include_remarks=亚洲|香港|台湾|日本|美国|.*
 exclude_remarks=独享IP|YouTube|AbemaTV|MyTVSuper|hulu
 
 add_emoji=true
@@ -29,7 +30,7 @@ emoji=南极洲,🇦🇶
 emoji=阿根廷,🇦🇷
 emoji=美属萨摩亚群岛,🇦🇸
 emoji=奥地利,🇦🇹
-emoji=澳大利亚,🇦🇺
+emoji=澳大利亚|澳洲,🇦🇺
 emoji=阿鲁巴,🇦🇼
 emoji=奥兰群岛,🇦🇽
 emoji=阿塞拜疆,🇦🇿
