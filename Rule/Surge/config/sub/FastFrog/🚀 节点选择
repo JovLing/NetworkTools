@@ -7,7 +7,7 @@ rename=日本.*特供原生@日本AbemaTV
 rename=香港.*myTVSUPER@香港MyTVSuper
 rename=特供@
 
-exclude_remarks=独享IP|YouTube|AbemaTV|MyTVSuper|hulu
+exclude_remarks=独享IP|YouTube|(日本.*特供原生)|myTVSUPER|hulu
 
 add_emoji=true
 remove_old_emoji=true
