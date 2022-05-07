@@ -8,7 +8,7 @@ rename=香港.*myTVSUPER@香港MyTVSuper
 rename=特供@
 
 include_remarks=香港|台湾|美国
-exclude_remarks=独享IP|MyTVSuper|YouTube|hulu
+exclude_remarks=独享IP|myTVSUPER|YouTube|hulu
 
 add_emoji=true
 remove_old_emoji=true
