@@ -1,10 +1,9 @@
 add_emoji=true
 remove_old_emoji=true
-emoji=中国,🇨🇳
-emoji=台湾,🇹🇼
 emoji=流量|Traffic,📶
 emoji=时间|日期|Expire,🗓️
-emoji=亚洲,🌏
+emoji=中国,🇨🇳
+emoji=台湾,🇹🇼
 emoji=阿森松岛,🇦🇨
 emoji=安道尔,🇦🇩
 emoji=阿联酋|阿拉伯联合酋长国,🇦🇪
