@@ -1,4 +1,3 @@
-;请在构造HTTP请求中添加该任务仓库
 {
     "name":"UI查询脚本",
     "description":"用于构造HTTP请求任务查询脚本",
