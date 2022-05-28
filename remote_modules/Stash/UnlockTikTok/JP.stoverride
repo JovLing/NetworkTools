@@ -1,5 +1,5 @@
-name=解锁TikTok
-desc=解锁TikTok对中国大陆网络、设备及+86手机号的限制
+name: 解锁TikTok
+desc: 解锁TikTok对中国大陆网络、设备及+86手机号的限制
 
 http:
   url-rewrite:
