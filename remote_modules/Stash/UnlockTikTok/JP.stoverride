@@ -1,0 +1,23 @@
+name=解锁TikTok
+desc=解锁TikTok对中国大陆网络、设备及+86手机号的限制
+
+http:
+  mitm:
+    - 'tiktokv.com'
+    - 'byteoversea.com'
+    - 'tik-tokapi.com'
+  rewrite:
+    - (?<=_region=)CN(?=&) JP 307
+    - (^h.+v5\/)(.+) $1 302
+    - (?<=&mcc_mnc=)4 2 307
+    - (?<=eme\/v)2(?=\/f\w{2}d\/\?.*) 1 302
+  script:
+    - match: ^https?:\/\/.*\.tiktokv\.com\/aweme\/v\d\/(feed|mix\/aweme|aweme\/post|(multi\/)?aweme\/detail|follow\/feed|nearby\/feed|search\/item|general\/search\/single|hot\/search\/video\/list|aweme\/favorite)
+      name: TikTok_RemoveWatermark
+      type: response
+      require-body: true
+      timeout: 10
+  script-providers:
+      TikTok_RemoveWatermark:
+      url: https://raw.githubusercontent.com/Tartarus2014/Script/master/Tiktok.js
+      interval: 86400
