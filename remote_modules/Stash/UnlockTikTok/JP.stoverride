@@ -17,7 +17,8 @@ http:
       type: response
       require-body: true
       timeout: 10
-  script-providers:
-      TikTok_RemoveWatermark:
-      url: https://raw.githubusercontent.com/Tartarus2014/Script/master/Tiktok.js
-      interval: 86400
+
+script-providers:
+  TikTok_RemoveWatermark:
+  url: https://raw.githubusercontent.com/Tartarus2014/Script/master/Tiktok.js
+  interval: 86400
