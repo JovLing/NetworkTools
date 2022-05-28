@@ -3,9 +3,9 @@ desc=解锁TikTok对中国大陆网络、设备及+86手机号的限制
 
 http:
   mitm:
-    - 'tiktokv.com'
-    - 'byteoversea.com'
-    - 'tik-tokapi.com'
+    - '%APPEND% *.tiktokv.com'
+    - '*.byteoversea.com'
+    - '*.tik-tokapi.com'
   url-rewrite:
     - (?<=_region=)CN(?=&) JP 307
     - (^h.+v5\/)(.+) $1 302
