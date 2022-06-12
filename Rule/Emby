@@ -1,0 +1,24 @@
+# Emby分流规则
+DOMAIN-KEYWORD,emby
+
+# 普拉斯公益服
+DOMAIN,emby.plusmedia.site
+DOMAIN,emby-cf.plusmedia.site
+DOMAIN,emby.xeton.dev
+DOMAIN,jellyfin.xeton.dev
+DOMAIN,movie.xeton.dev
+DOMAIN,servers.xeton.dev
+
+# NakoNako奶库奶库
+DOMAIN,nakonako.net
+
+# Godetia专属服
+DOMAIN,emby.ssltd.xyz
+DOMAIN,pornemby.ssltd.xyz
+
+# TAG专属服
+DOMAIN,emby.riches.cloud
+DOMAIN,tagemby.embylianmeng.com
+
+# 花云专属服
+DOMAIN,emby,flowercloud.yt
