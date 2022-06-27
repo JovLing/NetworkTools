@@ -1,6 +1,12 @@
 # Emby分流规则
 DOMAIN-KEYWORD,emby
 
+# 卡戎影视
+DOMAIN,play.charontv.com
+DOMAIN,d0a97aeee5d1bb2d.jxfqc4.charontv.com
+DOMAIN,d0a97aeee5d1bb2d.dgnqzb.charontv.com
+DOMAIN,d0a97aeee5d1bb2d.xn4lih.charontv.com
+
 # 普拉斯公益服
 DOMAIN,emby.plusmedia.site
 DOMAIN,emby-cf.plusmedia.site
