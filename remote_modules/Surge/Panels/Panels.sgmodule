@@ -27,7 +27,7 @@ TrafficStatistics = type=generic,timeout=10,script-path= https://raw.githubuserc
 # 节点检测
 ipcheck = type=generic,timeout=3,script-path=https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/ipcheck.js
 # 网络详情
-NET_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/net_info.js,argument=icon=externaldrive.connected.to.line.below&color=#9a7ff7&group=🚀 节点选择
+NET_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/JovLing/NetworkTools/LXin/remote_modules/Surge/Panels/JS/net_info.js,argument=icon=externaldrive.connected.to.line.below&color=#9a7ff7&group=🚀 节点选择
 # 网络连通性测试
 Connectivity_Test = type=generic,timeout=3,script-path=https://raw.githubusercontent.com/DeepPlaying/surge/main/JS/ConnectivityTest.js,argument=title=Connectivity Test&icon=icloud.and.arrow.down&color=#FF9F0A&server=false
 # 配置重载
