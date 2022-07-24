@@ -1,13 +1,3 @@
-/**
-* [Panel]
-* #节点检测
-* ipcheck = script-name=ipcheck, title="节点详情", content="请刷新", style=info, update-interval=1
-* ...
-* [Script]
-* #节点检测
-* ipcheck = type=generic,timeout=3,script-path=https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/ipcheck.js
-*/
-
 let url = "http://ip-api.com/json/?lang=zh-CN"
 
 $httpClient.get(url, function(error, response, data){
