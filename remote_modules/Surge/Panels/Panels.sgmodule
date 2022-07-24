@@ -12,12 +12,14 @@ ipcheck = script-name=ipcheck, title="节点详情", content="请刷新", style=
 NET_info = script-name=NET_info,update-interval=1
 # 网络连通性测试
 Connectivity_Test = script-name=Connectivity_Test,update-interval=1
-# 配置重载
-配置重载 = title=配置重载,content=配置重载,style=info,script-name=配置重载,update-interval=-1
-# 刷新DNS
-刷新DNS = script-name=刷新DNS,update-interval=1
 # 流媒体解锁检测
 stream-all = script-name=stream-all, title="流媒体解锁检测", content="请刷新面板", update-interval=-1
+# DAZN解锁检测
+dazn_check = script-name=dazn_check, title="dazn", content="请刷新", update-interval=86400
+# 刷新DNS
+刷新DNS = script-name=刷新DNS,update-interval=1
+# 配置重载
+配置重载 = title=配置重载,content=配置重载,style=info,script-name=配置重载,update-interval=-1
 
 [Script]
 # Surge标题[显示启动时间]
@@ -30,9 +32,11 @@ ipcheck = type=generic,timeout=3,script-path=https://raw.githubusercontent.com/L
 NET_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/JovLing/NetworkTools/LXin/remote_modules/Surge/Panels/JS/net_info.js,argument=icon=externaldrive.connected.to.line.below&color=#9a7ff7&group=🚀 节点选择
 # 网络连通性测试
 Connectivity_Test = type=generic,timeout=3,script-path=https://raw.githubusercontent.com/DeepPlaying/surge/main/JS/ConnectivityTest.js,argument=title=Connectivity Test&icon=icloud.and.arrow.down&color=#FF9F0A&server=false
-# 配置重载
-配置重载=script-path=https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/Reload.js,type=generic
-# 刷新DNS
-刷新DNS = type=generic,timeout=3,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/flushDNS.js,argument=title=刷新DNS缓存&icon=repeat.circle.fill&color=#FF9F0A&server=false
 # 流媒体解锁检测
 stream-all = type=generic, timeout=15, script-path=https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/stream-all.js
+# DAZN解锁检测
+dazn_check = type=generic,timeout=5,script-path=https://raw.githubusercontent.com/Onlookers-Group/Texonin-LAB-Public/main/Surge/js/js_normal/DAZN.js
+# 刷新DNS
+刷新DNS = type=generic,timeout=3,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/flushDNS.js,argument=title=刷新DNS缓存&icon=repeat.circle.fill&color=#FF9F0A&server=false
+# 配置重载
+配置重载=script-path=https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/Reload.js,type=generic
