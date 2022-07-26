@@ -141,3 +141,13 @@ dns:
       - +.gvt1.com
       - +.github.com
       - +.githubusercontent.com
+proxy-providers:
+  下载加速:
+    type: http
+    url: "https://api.jovling.xyz/sub?target=clash&url=https%3A%2F%2Fsubv2.nanoport.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Db4b766d8d2206b3111489575697d23b5&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FJovLing%2FNetworkTools%2FLXin%2FRule%2FConfig%2FComprehensive(showTW)%2F%25E9%2580%259A%25E7%2594%25A8.ini&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=false&new_name=true"
+    interval: 86400
+    path: ./DownloadAcceleration.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://1.1.1.1/generate_204
