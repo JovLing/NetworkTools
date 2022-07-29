@@ -1,165 +1,113 @@
-mixed-port: 7890
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
 allow-lan: false
 mode: Rule
-log-level: debug
-ipv6: true
-external-controller: 127.0.0.1:9090
+log-level: info
+ipv6: false
 hosts:
-  router.asus.com: 192.168.186.1
+  services.googleapis.cn: 216.58.200.67
+  www.google.cn: 216.58.200.67
+external-controller: 0.0.0.0:9090
+clash-for-android:
+  append-system-dns: false
+profile:
+  tracing: true
 dns:
   enable: true
-  ipv6: true
-  listen: 127.0.0.1:53
-  nameserver-policy:
-    "*.tw": 1.1.1.1
-    testflight.apple.com: 8.8.8.8
-    "*.tmall.com": 223.5.5.5
-    "*.taobao.com": 223.5.5.5
-    "*.alicdn.com": 223.5.5.5
-    "*.aliyun.com": 223.5.5.5
-    "*.alipay*.com": 223.5.5.5
-    "*.alibaba*.com": 223.5.5.5
-    "*.alimama*.com": 223.5.5.5
-    "*.qq.com": 119.29.29.29
-    "*.tencent.com": 119.29.29.29
-    "*.weixin.com": 119.29.29.29
-    "*.qpic.cn": 119.29.29.29
-    "*.jd.com": 119.29.29.29
-    "*.bilibili.com": 119.29.29.29
-    hdslb.com: 119.29.29.29
-    "*.163.com": 119.29.29.29
-    "*.126.com": 119.29.29.29
-    "*.126.net": 119.29.29.29
-    "*.127.net": 119.29.29.29
-    "*.netease.com": 119.29.29.29
-    "*.10010.com": 119.29.29.29
-    "*.unicompayment.com": 119.29.29.29
-    "*.vercel.app": 119.29.29.29
-    "*.vercel.com": 119.29.29.29
-    "*.ximalaya.com": 119.29.29.29
-    "*.baidu.com": 119.29.29.29
-    "*.bdstatic.com": 119.29.29.29
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  use-hosts: true
-  fake-ip-filter:
-      - "*.lan"
-      - "*.localdomain"
-      - "*.example"
-      - "*.invalid"
-      - "*.localhost"
-      - "*.test"
-      - "*.local"
-      - "*.home.arpa"
-      - "dns.msftncsi.com"
-      - "www.msftncsi.com"
-      - "www.msftconnecttest.com"
-      - "time.*.com"
-      - "time.*.gov"
-      - "time.*.edu.cn"
-      - "time.*.apple.com"
-      - "time1.*.com"
-      - "time2.*.com"
-      - "time3.*.com"
-      - "time4.*.com"
-      - "time5.*.com"
-      - "time6.*.com"
-      - "time7.*.com"
-      - "ntp.*.com"
-      - "ntp1.*.com"
-      - "ntp2.*.com"
-      - "ntp3.*.com"
-      - "ntp4.*.com"
-      - "ntp5.*.com"
-      - "ntp6.*.com"
-      - "ntp7.*.com"
-      - "*.time.edu.cn"
-      - "*.ntp.org.cn"
-      - "+.pool.ntp.org"
-      - "time1.cloud.tencent.com"
-      - "music.163.com"
-      - "*.music.163.com"
-      - "*.126.net"
-      - "musicapi.taihe.com"
-      - "music.taihe.com"
-      - "songsearch.kugou.com"
-      - "trackercdn.kugou.com"
-      - "*.kuwo.cn"
-      - "api-jooxtt.sanook.com"
-      - "api.joox.com"
-      - "joox.com"
-      - "y.qq.com"
-      - "*.y.qq.com"
-      - "streamoc.music.tc.qq.com"
-      - "mobileoc.music.tc.qq.com"
-      - "isure.stream.qqmusic.qq.com"
-      - "dl.stream.qqmusic.qq.com"
-      - "aqqmusic.tc.qq.com"
-      - "amobile.music.tc.qq.com"
-      - "*.xiami.com"
-      - "*.music.migu.cn"
-      - "music.migu.cn"
-      - "*.msftconnecttest.com"
-      - "*.msftncsi.com"
-      - "msftconnecttest.com"
-      - "msftncsi.com"
-      - "localhost.ptlogin2.qq.com"
-      - "localhost.sec.qq.com"
-      - "+.srv.nintendo.net"
-      - "+.stun.playstation.net"
-      - "xbox.*.microsoft.com"
-      - "xnotify.xboxlive.com"
-      - "+.battlenet.com.cn"
-      - "+.wotgame.cn"
-      - "+.wggames.cn"
-      - "+.wowsgame.cn"
-      - "+.wargaming.net"
-      - "proxy.golang.org"
-      - "stun.*.*"
-      - "stun.*.*.*"
-      - "+.stun.*.*"
-      - "+.stun.*.*.*"
-      - "+.stun.*.*.*.*"
-      - "heartbeat.belkin.com"
-      - "*.linksys.com"
-      - "*.linksyssmartwifi.com"
-      - "*.router.asus.com"
-      - "mesu.apple.com"
-      - "swscan.apple.com"
-      - "swquery.apple.com"
-      - "swdownload.apple.com"
-      - "swcdn.apple.com"
-      - "swdist.apple.com"
-      - "lens.l.google.com"
-      - "stun.l.google.com"
-      - "+.nflxvideo.net"
-      - "*.square-enix.com"
-      - "*.finalfantasyxiv.com"
-      - "*.ffxiv.com"
-  nameserver:
+  listen: 127.0.0.1:8853
+  default-nameserver:
     - 223.5.5.5
-    - 119.29.29.29
-    - "[2400:3200::1]:53"
-    - "[240C::6666]:53"
+    - 1.0.0.1
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-filter:
+    - "*.lan"
+    - stun.*.*.*
+    - stun.*.*
+    - time.windows.com
+    - time.nist.gov
+    - time.apple.com
+    - time.asia.apple.com
+    - "*.ntp.org.cn"
+    - "*.openwrt.pool.ntp.org"
+    - time1.cloud.tencent.com
+    - time.ustc.edu.cn
+    - pool.ntp.org
+    - ntp.ubuntu.com
+    - ntp.aliyun.com
+    - ntp1.aliyun.com
+    - ntp2.aliyun.com
+    - ntp3.aliyun.com
+    - ntp4.aliyun.com
+    - ntp5.aliyun.com
+    - ntp6.aliyun.com
+    - ntp7.aliyun.com
+    - time1.aliyun.com
+    - time2.aliyun.com
+    - time3.aliyun.com
+    - time4.aliyun.com
+    - time5.aliyun.com
+    - time6.aliyun.com
+    - time7.aliyun.com
+    - "*.time.edu.cn"
+    - time1.apple.com
+    - time2.apple.com
+    - time3.apple.com
+    - time4.apple.com
+    - time5.apple.com
+    - time6.apple.com
+    - time7.apple.com
+    - time1.google.com
+    - time2.google.com
+    - time3.google.com
+    - time4.google.com
+    - music.163.com
+    - "*.music.163.com"
+    - "*.126.net"
+    - musicapi.taihe.com
+    - music.taihe.com
+    - songsearch.kugou.com
+    - trackercdn.kugou.com
+    - "*.kuwo.cn"
+    - api-jooxtt.sanook.com
+    - api.joox.com
+    - joox.com
+    - y.qq.com
+    - "*.y.qq.com"
+    - streamoc.music.tc.qq.com
+    - mobileoc.music.tc.qq.com
+    - isure.stream.qqmusic.qq.com
+    - dl.stream.qqmusic.qq.com
+    - aqqmusic.tc.qq.com
+    - amobile.music.tc.qq.com
+    - "*.xiami.com"
+    - "*.music.migu.cn"
+    - music.migu.cn
+    - "*.msftconnecttest.com"
+    - "*.msftncsi.com"
+    - localhost.ptlogin2.qq.com
+    - "*.*.*.srv.nintendo.net"
+    - "*.*.stun.playstation.net"
+    - xbox.*.*.microsoft.com
+    - "*.ipv6.microsoft.com"
+    - "*.*.xboxlive.com"
+    - speedtest.cros.wr.pvp.net
+  nameserver:
+    - https://223.6.6.6/dns-query
+    - https://rubyfish.cn/dns-query
+    - https://dns.pub/dns-query
   fallback:
-    - 8.8.8.8
-    - 1.1.1.1
-    - 94.140.14.14
-    - "[2001:4860:4860::8888]:53"
+    - https://dns.rubyfish.cn/dns-query
+    - https://public.dns.iij.jp/dns-query
+    - tls://8.8.4.4
   fallback-filter:
     geoip: true
-    geoip-core: CN
     ipcidr:
-      - 0.0.0.0/8
-      - 10.0.0.0/8
-      - 100.64.0.0/10
-      - 127.0.0.0/8
-      - 169.254.0.0/16
-      - 172.16.0.0/12
-      - 192.168.0.0/16
-      - 198.18.0.0/15
-      - 224.0.0.0/3
-      - 255.255.255.255/32
+      - 240.0.0.0/4
+      - 0.0.0.0/32
+      - 127.0.0.1/32
     domain:
       - +.google.com
       - +.facebook.com
@@ -168,13 +116,5 @@ dns:
       - +.xn--ngstr-lra8j.com
       - +.google.cn
       - +.googleapis.cn
+      - +.googleapis.com
       - +.gvt1.com
-      - +.github.com
-      - +.githubusercontent.com
-  tun:
-    enable: true
-    stack: system
-    dns-hijack:
-      - 198.18.0.2:53
-    auto-route: true
-    auto-detect-interface: true
