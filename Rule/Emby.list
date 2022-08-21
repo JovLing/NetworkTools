@@ -1,11 +1,12 @@
-# BlueSea蓝海音乐
-DOMAIN,blueseamusics.com
-
-# BambooMusic竹音音乐
-DOMAIN,acg.fm
-
 # Emby分流规则
 DOMAIN-KEYWORD,emby
+
+# BambooMusic竹音
+DOMAIN,acg.fm
+
+# BlueSea蓝海
+DOMAIN,blueseamusics.com
+DOMAIN,emby-pub1.blueseacdn.com
 
 # 卡戎影视
 DOMAIN,play.charontv.com
