@@ -1,8 +1,8 @@
 #!name=解锁TikTok
 #!desc=解锁TikTok对中国大陆网络、设备及+86手机号的限制
-#!author= JovLing
-#!homepage=https://github.com/Peng-YM/Sub-Store
-#!icon= https://raw.githubusercontent.com/JovLing/NetworkTools/LXin/icon/Media/TikTok.png
+#!author=JovLing
+#!homepage=https://github.com/JovLing/NetworkTools/blob/LXin/remote_modules/Loon
+#!icon=https://raw.githubusercontent.com/JovLing/NetworkTools/LXin/icon/Media/TikTok.png
 
 [URL Rewrite]
 (?<=_region=)CN(?=&) JP 307
