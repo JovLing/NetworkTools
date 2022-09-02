@@ -1,5 +1,6 @@
 #!name=解锁Emby Premiere
 #!desc=解除Emby无Premiere下观看时长限制
+#!author=JovLing
 #!icon=https://raw.githubusercontent.com/JovLing/NetworkTools/LXin/icon/Media/Emby.png
 
 [Script]
