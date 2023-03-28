@@ -1,11 +1,11 @@
-#!name=解锁TikTok
-#!desc=解锁TikTok地区限制并去除TikTok下载视频水印
+name=解锁TikTok
+desc=解锁TikTok地区限制并去除TikTok下载视频水印
 
 http:
   mitm:
-    - '*.tiktokv.com'
-    - '*.byteoversea.com'
-    - '*.tik-tokapi.com'
+    - "*.tiktokv.com"
+    - "*.byteoversea.com"
+    - "*.tik-tokapi.com"
   rewrite:
     - (?<=_region=)CN(?=&) JP 307
     - (?<=&mcc_mnc=)4 2 307
