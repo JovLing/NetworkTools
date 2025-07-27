@@ -1,8 +1,4 @@
 mixed-port: 7890
-allow-lan: true
-mode: Rule
-log-level: info
-ipv6: false
 hosts:
   services.googleapis.cn: 216.58.200.67
   www.google.cn: 216.58.200.67
@@ -17,7 +13,7 @@ dns:
   default-nameserver:
     - 223.5.5.5
     - 1.0.0.1
-  ipv6: false
+    - 119.29.29.29
   enhanced-mode: fake-ip
   fake-ip-filter:
     - "*.lan"
