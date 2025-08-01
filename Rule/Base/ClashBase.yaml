@@ -1,7 +1,6 @@
 mixed-port: 7890
 external-controller: 0.0.0.0:9090
 mode: Rule
-proxy-test-url: http://www.bing.com
 dns:
   enable: true
   ipv6: true
