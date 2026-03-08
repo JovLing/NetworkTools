@@ -5,41 +5,53 @@ function main(config) {
     'mixed-port': 7890,
     'external-controller': '0.0.0.0:9090',
     'mode': 'Rule',
-    'unified-delay': true,
-    'sniffer': {
-      'sniff': {
-        'TLS': { 'ports': [443], 'override-destination': true },
-        'HTTP': { 'ports': [443], 'override-destination': true }
-      },
-      'enable': true,
-      'skip-domain': [
-        'Mijia Cloud',
-        'dlg.io.mi.com'
-      ],
-      'parse-pure-ip': false,
-      'force-dns-mapping': true,
-      'override-destination': true
-    },
     'dns': {
-      'ipv6': false,
       'enable': true,
+      'ipv6': false,
       'listen': '0.0.0.0:1053',
-      'use-hosts': false,
+      'enhanced-mode': 'fake-ip',
+      'fake-ip-range': '198.18.0.1/16',
+      'fake-ip-filter': [
+        '*.lan',
+        '*.localdomain',
+        '*.localhost',
+        '*.local',
+        '*.msftncsi.com',
+        '*.msftconnecttest.com',
+        'time.*.com',
+        'ntp.*.com'
+      ],
       'default-nameserver': [
-        '119.29.29.29',
         '223.5.5.5',
-        '8.8.4.4',
-        '1.0.0.1'
+        '119.29.29.29'
       ],
       'nameserver': [
-        'https://wrecking7857.com:44443/dns-query/a96efe07-ffe5-4b97-87ad-f61bbc95a2da',
-        'https://carrousel6917.com:44443/dns-query/a96efe07-ffe5-4b97-87ad-f61bbc95a2da',
-        'https://simmering3378.com:443/dns-query/a96efe07-ffe5-4b97-87ad-f61bbc95a2da'
+        'https://doh.pub/dns-query',
+        'https://dns.alidns.com/dns-query'
       ],
-      'fake-ip-range': '198.18.0.1/15',
-      'fake-ip-filter': [
-        '*.lan', '*.localdomain', '*.example', '*.invalid', '*.localhost', '*.test', '*.local', '*.home.arpa', 'time.*.com', 'time.*.gov', 'time.*.edu.cn', 'time.*.apple.com', 'time1.*.com', 'time2.*.com', 'time3.*.com', 'time4.*.com', 'time5.*.com', 'time6.*.com', 'time7.*.com', 'ntp.*.com', 'ntp1.*.com', 'ntp2.*.com', 'ntp3.*.com', 'ntp4.*.com', 'ntp5.*.com', 'ntp6.*.com', 'ntp7.*.com', '*.time.edu.cn', '*.ntp.org.cn', '+.pool.ntp.org', 'time1.cloud.tencent.com', 'stun.*.*', 'stun.*.*.*', 'swscan.apple.com', 'mesu.apple.com', 'music.163.com', '*.music.163.com', '*.126.net', 'musicapi.taihe.com', 'music.taihe.com', 'songsearch.kugou.com', 'trackercdn.kugou.com', '*.kuwo.cn', 'api-jooxtt.sanook.com', 'api.joox.com', 'y.qq.com', '*.y.qq.com', 'streamoc.music.tc.qq.com', 'mobileoc.music.tc.qq.com', 'isure.stream.qqmusic.qq.com', 'dl.stream.qqmusic.qq.com', 'aqqmusic.tc.qq.com', 'amobile.music.tc.qq.com', 'localhost.ptlogin2.qq.com', '*.msftconnecttest.com', '*.msftncsi.com', '*.xiami.com', '*.music.migu.cn', 'music.migu.cn', '+.wotgame.cn', '+.wggames.cn', '+.wowsgame.cn', '+.wargaming.net', '*.*.*.srv.nintendo.net', '*.*.stun.playstation.net', 'xbox.*.*.microsoft.com', '*.*.xboxlive.com', '*.ipv6.microsoft.com', 'teredo.*.*.*', 'teredo.*.*', 'speedtest.cros.wr.pvp.net', '+.jjvip8.com', 'www.douyu.com', 'activityapi.huya.com', 'activityapi.huya.com.w.cdngslb.com', 'www.bilibili.com', 'api.bilibili.com', 'a.w.bilicdn1.com'
-      ]
+      'fallback': [
+        'tls://1.1.1.1',
+        'tls://8.8.4.4',
+        'tls://dns.google',
+        'https://1.0.0.1/dns-query'
+      ],
+      'fallback-filter': {
+        'geoip': true,
+        'geoip-code': 'CN',
+        'geosite': [
+          'gfw'
+        ],
+        'ipcidr': [
+          '240.0.0.0/4'
+        ],
+        'domain': [
+          '+.google.com',
+          '+.facebook.com',
+          '+.youtube.com',
+          '+.twitter.com',
+          '+.telegram.org'
+        ]
+      }
     }
   });
 
@@ -59,7 +71,7 @@ function main(config) {
     
     // 清除原来的Emoji旗帜
     name = name.replace(/[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF][\u200D|\uFE0F]|[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF]|[0-9|*|#]\uFE0F\u20E3|[0-9|#]\u20E3|[\u203C-\u3299]\uFE0F\u200D|[\u203C-\u3299]\uFE0F|[\u2122-\u2B55]|\u303D|[\A9|\AE]\u3030|\uA9|\uAE|\u3030/g, "");
-    name = name.trim();
+    name = name。trim();
     
     // 节点重命名
     name = name.replace(/Japan 01 \(DIP Japan-Tokyo\)/i, "日本-东京（🏠独享IP）");
