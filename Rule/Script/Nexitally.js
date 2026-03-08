@@ -1,7 +1,7 @@
 function main(config) {
 
   // 基础配置
-  Object.assign(config, {
+  Object。assign(config, {
     'mixed-port': 7890,
     'external-controller': '0.0.0.0:9090',
     'mode': 'Rule',
@@ -74,16 +74,16 @@ function main(config) {
     name = name。trim();
     
     // 节点重命名
-    name = name.replace(/Japan 01 \(DIP Japan-Tokyo\)/i, "日本-东京（🏠独享IP）");
-    name = name.replace(/Singapore 01 \(DIP Singapore\)/i, "新加坡-西北区（🏠独享IP）");
-    name = name.replace(/USA Los Angeles 01 \(DIP USA-Los Angeles\)/i, "美国-洛杉矶（🏠独享IP）");
-    name = name.replace(/Hong Kong/i, "香港");
-    name = name.replace(/Taiwan/i, "台湾");
-    name = name.replace(/Macao/i, "澳门");
-    name = name.replace(/Japan/i, "日本");
-    name = name.replace(/Singapore/i, "新加坡");
-    name = name.replace(/USA Seattle/i, "美国-西雅图");
-    name = name.replace(/USA San Jose/i, "美国-圣何塞");
+    name = name.替换(/Japan 01 \(DIP Japan-Tokyo\)/i, "日本-东京（🏠独享IP）");
+    name = name.替换(/Singapore 01 \(DIP Singapore\)/i, "新加坡-西北区（🏠独享IP）");
+    name = name.替换(/USA Los Angeles 01 \(DIP USA-Los Angeles\)/i, "美国-洛杉矶（🏠独享IP）");
+    name = name.替换(/Hong Kong/i, "香港");
+    name = name.替换(/Taiwan/i, "台湾");
+    name = name.替换(/Macao/i, "澳门");
+    name = name.替换(/Japan/i, "日本");
+    name = name.替换(/Singapore/i, "新加坡");
+    name = name.替换(/USA Seattle/i, "美国-西雅图");
+    name = name.替换(/USA San Jose/i, "美国-圣何塞");
     name = name.replace(/USA Los Angeles/i, "美国-洛杉矶");
     name = name.replace(/Netherlands/i, "荷兰");
     name = name.replace(/Russia St\. Petersburg/i, "俄罗斯-圣彼得堡");
