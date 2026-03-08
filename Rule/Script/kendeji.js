@@ -6,64 +6,49 @@ function main(config) {
     'mixed-port': 7890,
     'external-controller': '0.0.0.0:9090',
     'mode': 'Rule',
-    'bind-address': '*',
-    'unified-delay': true,
-    'tcp-concurrent': true,
-    'global-client-fingerprint': 'chrome',
     'dns': {
       'enable': true,
-      'cache-algorithm': 'arc',
+      'ipv6': false,
       'listen': '0.0.0.0:1053',
-      'ipv6': true,
-      'use-hosts': true,
-      'use-system-hosts': true,
-      'respect-rules': false,
       'enhanced-mode': 'fake-ip',
       'fake-ip-range': '198.18.0.1/16',
       'fake-ip-filter': [
         '*.lan',
-        'localhost',
-        'lens.l.google.com',
-        '*.srv.nintendo.net',
-        '*.stun.playstation.net',
-        'xbox.*.*.microsoft.com',
-        '*.xboxlive.com',
+        '*.localdomain',
+        '*.localhost',
+        '*.local',
         '*.msftncsi.com',
         '*.msftconnecttest.com',
-        'time.*.com'
+        'time.*.com',
+        'ntp.*.com'
       ],
       'default-nameserver': [
         '223.5.5.5',
         '119.29.29.29'
       ],
       'nameserver': [
-        '223.5.5.5',
-        '119.29.29.29'
+        'https://doh.pub/dns-query',
+        'https://dns.alidns.com/dns-query'
       ],
       'fallback': [
         'tls://1.1.1.1',
-        'tls://8.8.8.8'
+        'tls://8.8.4.4',
+        'tls://dns.google',
+        'https://1.0.0.1/dns-query'
       ],
-      'proxy-server-nameserver': [
-        'https://dns.alidns.com/dns-query',
-        'https://doh.pub/dns-query'
-      ],
-      'direct-nameserver': [
-        'system',
-        'https://dns.alidns.com/dns-query',
-        'https://doh.pub/dns-query'
-      ],
-      'direct-nameserver-follow-policy': false,
       'fallback-filter': {
         'geoip': true,
         'geoip-code': 'CN',
         'geosite': [
-          'gfw',
-          'youtube'
+          'gfw'
+        ],
+        'ipcidr': [
+          '240.0.0.0/4'
         ],
         'domain': [
           '+.google.com',
           '+.facebook.com',
+          '+.youtube.com',
           '+.twitter.com',
           '+.telegram.org'
         ]
