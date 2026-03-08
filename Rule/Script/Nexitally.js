@@ -129,90 +129,105 @@ function main(config) {
     {
       name: "节点选择",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/NetworkProxy/Airport.png",
+      url: "http://cp.cloudflare.com",
       type: "select",
       proxies: ["🇭🇰 香港|🛫节点", "🇯🇵 日本|🛫节点", "🇸🇬 新加坡|🛫节点", "🇺🇸 美国|🛫节点", ...jpDIP, ...sgDIP, ...usDIP, ...otherNodes]
     },
     {
       name: "电报",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Telegram.png",
+      url: "http://cp.cloudflare.com",
       type: "select",
       proxies: ["🇭🇰 香港|🛫节点", "🇯🇵 日本|🛫节点"]
     },
     {
       name: "海外影视",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/GlobalMedia.png",
+      url: "http://cp.cloudflare.com",
       type: "select",
       proxies: ["🇸🇬 新加坡|🛫节点", "🇺🇸 美国|🛫节点"]
     },
     {
       name: "海外社交平台",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/SocialContact.png",
+      url: "http://cp.cloudflare.com",
       type: "select",
       proxies: [...sgDIP, ...usDIP, "🇸🇬 新加坡|🛫节点", "🇺🇸 美国|🛫节点"]
     },
     {
       name: "TikTok",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/TikTok.png",
+      url: "http://cp.cloudflare.com",
       type: "select",
       proxies: [...jpDIP, ...sgDIP, "🇯🇵 日本|🛫节点", "🇸🇬 新加坡|🛫节点"]
     },
     {
       name: "AI",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/AI.png",
+      url: "http://cp.cloudflare.com",
       type: "select",
       proxies: [...sgDIP, ...usDIP, "🇸🇬 新加坡|🛫节点", "🇺🇸 美国|🛫节点"]
     },
     {
       name: "游戏平台",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Games.png",
+      url: "http://cp.cloudflare.com",
       type: "select",
       proxies: ["DIRECT", "🇭🇰 香港|🛫节点"]
     },
     {
       name: "谷歌",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Google.png",
+      url: "http://cp.cloudflare.com",
       type: "select",
       proxies: [...sgDIP, ...usDIP, "🇸🇬 新加坡|🛫节点", "🇺🇸 美国|🛫节点"]
     },
     {
       name: "苹果",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Apple.png",
+      url: "http://cp.cloudflare.com",
       type: "select",
       proxies: ["DIRECT", "🇭🇰 香港|🛫节点", "🇺🇸 美国|🛫节点"]
     },
     {
       name: "微软",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Microsoft.png",
+      url: "http://cp.cloudflare.com",
       type: "select",
       proxies: ["DIRECT", "🇭🇰 香港|🛫节点", "🇺🇸 美国|🛫节点"]
     },
     {
       name: "币圈",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Crypto.png",
+      url: "http://cp.cloudflare.com",
       type: "select",
       proxies: [...sgDIP, ...usDIP, "🇸🇬 新加坡|🛫节点", "🇺🇸 美国|🛫节点"]
     },
     { 
 	  name: "🇭🇰 香港|🛫节点",
 	  icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png",
+	  url: "http://cp.cloudflare.com",
 	  type: "select",
 	  proxies: hkNodes
 	},
 	{ 
 	  name: "🇯🇵 日本|🛫节点",
 	  icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png",
+	  url: "http://cp.cloudflare.com",
 	  type: "select",
 	  proxies: jpNodes
 	},
 	{ 
 	  name: "🇸🇬 新加坡|🛫节点",
 	  icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png",
+	  url: "http://cp.cloudflare.com",
 	  type: "select",
 	  proxies: sgNodes
 	},
 	{ 
 	  name: "🇺🇸 美国|🛫节点",
 	  icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png",
+	  url: "http://cp.cloudflare.com",
 	  type: "select",
 	  proxies: usNodes
 	}
