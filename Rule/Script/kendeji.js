@@ -1,5 +1,6 @@
 function main(config) {
-
+  const proxies = config.proxies || [];
+  
   // 基础配置
   Object.assign(config, {
     'mixed-port': 7890,
