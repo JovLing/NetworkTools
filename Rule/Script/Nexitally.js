@@ -160,7 +160,7 @@ function main(config) {
       proxies: ["🇸🇬 新加坡|🛫节点", "🇺🇸 美国|🛫节点"]
     },
     {
-      name: "海外社交平台"，
+      name: "海外社交平台",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/SocialContact.png",
       url: "http://cp.cloudflare.com",
       type: "select",
@@ -170,7 +170,7 @@ function main(config) {
       name: "TikTok",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/TikTok.png",
       url: "http://cp.cloudflare.com",
-      输入: "select"，
+      type: "select",
       proxies: [...jpDIP, ...sgDIP, "🇯🇵 日本|🛫节点", "🇸🇬 新加坡|🛫节点"]
     },
     {
