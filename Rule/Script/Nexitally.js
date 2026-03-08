@@ -71,20 +71,20 @@ function main(config) {
     
     // 清除原来的Emoji旗帜
     name = name.replace(/[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF][\u200D|\uFE0F]|[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF]|[0-9|*|#]\uFE0F\u20E3|[0-9|#]\u20E3|[\u203C-\u3299]\uFE0F\u200D|[\u203C-\u3299]\uFE0F|[\u2122-\u2B55]|\u303D|[\A9|\AE]\u3030|\uA9|\uAE|\u3030/g, "");
-    name = name。trim();
+    name = name.trim(); // 【已修复】中文句号改为英文点
     
     // 节点重命名
-    name = name.替换(/Japan 01 \(DIP Japan-Tokyo\)/i, "日本-东京（🏠独享IP）");
-    name = name.替换(/Singapore 01 \(DIP Singapore\)/i, "新加坡-西北区（🏠独享IP）");
-    name = name.替换(/USA Los Angeles 01 \(DIP USA-Los Angeles\)/i, "美国-洛杉矶（🏠独享IP）");
-    name = name.替换(/Hong Kong/i, "香港");
-    name = name.替换(/Taiwan/i, "台湾");
-    name = name.替换(/Macao/i, "澳门");
-    name = name.替换(/Japan/i, "日本");
-    name = name.替换(/Singapore/i, "新加坡");
-    name = name.替换(/USA Seattle/i, "美国-西雅图");
-    name = name.替换(/USA San Jose/i, "美国-圣何塞");
-    name = name.替换(/USA Los Angeles/i, "美国-洛杉矶");
+    name = name.replace(/Japan 01 \(DIP Japan-Tokyo\)/i, "日本-东京（🏠独享IP）"); // 【已修复】替换全部改回 replace
+    name = name.replace(/Singapore 01 \(DIP Singapore\)/i, "新加坡-西北区（🏠独享IP）");
+    name = name.replace(/USA Los Angeles 01 \(DIP USA-Los Angeles\)/i, "美国-洛杉矶（🏠独享IP）");
+    name = name.replace(/Hong Kong/i, "香港");
+    name = name.replace(/Taiwan/i, "台湾");
+    name = name.replace(/Macao/i, "澳门");
+    name = name.replace(/Japan/i, "日本");
+    name = name.replace(/Singapore/i, "新加坡");
+    name = name.replace(/USA Seattle/i, "美国-西雅图");
+    name = name.replace(/USA San Jose/i, "美国-圣何塞");
+    name = name.replace(/USA Los Angeles/i, "美国-洛杉矶");
     name = name.replace(/Netherlands/i, "荷兰");
     name = name.replace(/Russia St\. Petersburg/i, "俄罗斯-圣彼得堡");
     name = name.replace(/Russia Moscow/i, "俄罗斯-莫斯科");
