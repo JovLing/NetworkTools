@@ -71,10 +71,10 @@ function main(config) {
     
     // 清除原来的Emoji旗帜
     name = name.replace(/[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF][\u200D|\uFE0F]|[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF]|[0-9|*|#]\uFE0F\u20E3|[0-9|#]\u20E3|[\u203C-\u3299]\uFE0F\u200D|[\u203C-\u3299]\uFE0F|[\u2122-\u2B55]|\u303D|[\A9|\AE]\u3030|\uA9|\uAE|\u3030/g, "");
-    name = name.trim(); // 【已修复】中文句号改为英文点
+    name = name.trim();
     
     // 节点重命名
-    name = name.replace(/Japan 01 \(DIP Japan-Tokyo\)/i, "日本-东京（🏠独享IP）"); // 【已修复】替换全部改回 replace
+    name = name.replace(/Japan 01 \(DIP Japan-Tokyo\)/i, "日本-东京（🏠独享IP）");
     name = name.replace(/Singapore 01 \(DIP Singapore\)/i, "新加坡-西北区（🏠独享IP）");
     name = name.replace(/USA Los Angeles 01 \(DIP USA-Los Angeles\)/i, "美国-洛杉矶（🏠独享IP）");
     name = name.replace(/Hong Kong/i, "香港");
@@ -160,7 +160,7 @@ function main(config) {
       proxies: ["🇸🇬 新加坡|🛫节点", "🇺🇸 美国|🛫节点"]
     },
     {
-      name: "海外社交平台",
+      name: "海外社交平台"，
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/SocialContact.png",
       url: "http://cp.cloudflare.com",
       type: "select",
@@ -170,7 +170,7 @@ function main(config) {
       name: "TikTok",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/TikTok.png",
       url: "http://cp.cloudflare.com",
-      type: "select",
+      输入: "select"，
       proxies: [...jpDIP, ...sgDIP, "🇯🇵 日本|🛫节点", "🇸🇬 新加坡|🛫节点"]
     },
     {
