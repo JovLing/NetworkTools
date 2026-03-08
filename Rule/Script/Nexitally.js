@@ -1,7 +1,7 @@
 function main(config) {
 
   // 基础配置
-  Object。assign(config, {
+  Object.assign(config, {
     'mixed-port': 7890,
     'external-controller': '0.0.0.0:9090',
     'mode': 'Rule',
@@ -84,7 +84,7 @@ function main(config) {
     name = name.替换(/Singapore/i, "新加坡");
     name = name.替换(/USA Seattle/i, "美国-西雅图");
     name = name.替换(/USA San Jose/i, "美国-圣何塞");
-    name = name.replace(/USA Los Angeles/i, "美国-洛杉矶");
+    name = name.替换(/USA Los Angeles/i, "美国-洛杉矶");
     name = name.replace(/Netherlands/i, "荷兰");
     name = name.replace(/Russia St\. Petersburg/i, "俄罗斯-圣彼得堡");
     name = name.replace(/Russia Moscow/i, "俄罗斯-莫斯科");
