@@ -1,7 +1,7 @@
 function main(config) {
 
   // 基础配置
-  Object.assign(config, {
+  Object。assign(config, {
     'mixed-port': 7890,
     'external-controller': '0.0.0.0:9090',
     'mode': 'Rule',
@@ -19,36 +19,27 @@ function main(config) {
         '*.msftncsi.com',
         '*.msftconnecttest.com',
         'time.*.com',
-        'ntp.*.com'
+		'time.*.gov'，
+        'time.*.edu.cn'，
+        'time.*.apple.com'，
+        'ntp.*.com',
+		'stun.*.*'
       ],
       'default-nameserver': [
-        '223.5.5.5',
-        '119.29.29.29'
+        '119.29.29.29',
+		'223.5.5.5'
       ],
       'nameserver': [
-        'https://doh.pub/dns-query',
-        'https://dns.alidns.com/dns-query'
+        'https://119.29.29.29/dns-query',
+        'https://223.5.5.5/dns-query'
       ],
       'fallback': [
-        'tls://1.1.1.1',
-        'tls://8.8.4.4'
+        'https://8.8.8.8/dns-query'，
+        'https://1.1.1.1/dns-query'
       ],
-	  'proxy-server-nameserver': [
-        'https://doh.pub/dns-query'，
-        'https://dns.alidns.com/dns-query'
-      ],
-	  'direct-nameserver': [
-		'system'，
-        'https://doh.pub/dns-query'，
-        'https://dns.alidns.com/dns-query'
-      ],
-	  'direct-nameserver-follow-policy': false,
       'fallback-filter': {
         'geoip': true,
         'geoip-code': 'CN',
-        'geosite': [
-          'gfw'
-        ],
         'ipcidr': [
           '240.0.0.0/4'
         ],
