@@ -1,7 +1,7 @@
 function main(config) {
 
   // 基础配置
-  Object。assign(config, {
+  Object.assign(config, {
     'mixed-port': 7890,
     'external-controller': '0.0.0.0:9090',
     'mode': 'Rule',
