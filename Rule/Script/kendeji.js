@@ -34,16 +34,16 @@ function main(config) {
         'tls://1.1.1.1',
         'tls://8.8.4.4'
       ],
-	    'proxy-server-nameserver': [
+	  'proxy-server-nameserver': [
         'https://doh.pub/dns-query'，
         'https://dns.alidns.com/dns-query'
       ],
-	    'direct-nameserver': [
-		    'system'，
+	  'direct-nameserver': [
+	    'system'，
         'https://doh.pub/dns-query'，
         'https://dns.alidns.com/dns-query'
       ],
-	    'direct-nameserver-follow-policy': false,
+	  'direct-nameserver-follow-policy': false,
       'fallback-filter': {
         'geoip': true,
         'geoip-code': 'CN',
