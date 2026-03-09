@@ -15,23 +15,23 @@ dns:
     - "*.msftncsi.com"
     - "*.msftconnecttest.com"
     - time.*.com
+    - time.*.gov
+    - time.*.edu.cn
+    - time.*.apple.com
     - ntp.*.com
+    - stun.*.*
   default-nameserver:
-    - 223.5.5.5
     - 119.29.29.29
+    - 223.5.5.5
   nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
+    - 119.29.29.29
+    - 223.5.5.5
   fallback:
-    - tls://1.1.1.1
-    - tls://8.8.4.4
-    - tls://dns.google
-    - https://1.0.0.1/dns-query
+    - 8.8.8.8
+    - 1.1.1.1
   fallback-filter:
     geoip: true
     geoip-code: CN
-    geosite:
-      - gfw
     ipcidr:
       - 240.0.0.0/4
     domain:
