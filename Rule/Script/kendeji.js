@@ -20,9 +20,9 @@ function main(config) {
         '*.msftncsi.com',
         '*.msftconnecttest.com',
         'time.*.com',
-		'time.*.gov'，
-        'time.*.edu.cn'，
-        'time.*.apple.com'，
+		'time.*.gov',
+        'time.*.edu.cn',
+        'time.*.apple.com',
         'ntp.*.com',
 		'stun.*.*'
       ],
@@ -32,10 +32,10 @@ function main(config) {
       ],
       'nameserver': [
         'https://119.29.29.29/dns-query',
-        'https://223.5.5.5/dns-query'
+        'https://223.5.5.5/dns-query',
       ],
       'fallback': [
-        'https://8.8.8.8/dns-query'，
+        'https://8.8.8.8/dns-query',
         'https://1.1.1.1/dns-query'
       ],
       'fallback-filter': {
