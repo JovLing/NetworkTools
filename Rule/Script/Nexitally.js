@@ -73,39 +73,39 @@ function main(config) {
     name = name.trim();
     
     // 节点重命名
-    name = name.replace(/Japan 01 \(DIP Japan-Tokyo\)/i, "日本-东京（🏠独享IP）");
-    name = name.replace(/Singapore 01 \(DIP Singapore\)/i, "新加坡-西北区（🏠独享IP）");
-    name = name.replace(/USA Los Angeles 01 \(DIP USA-Los Angeles\)/i, "美国-洛杉矶（🏠独享IP）");
-    name = name.replace(/Hong Kong/i, "香港");
-    name = name.replace(/Taiwan/i, "台湾");
-    name = name.replace(/Macao/i, "澳门");
-    name = name.replace(/Japan/i, "日本");
-    name = name.replace(/Singapore/i, "新加坡");
-    name = name.replace(/USA Seattle/i, "美国-西雅图");
-    name = name.replace(/USA San Jose/i, "美国-圣何塞");
-    name = name.replace(/USA Los Angeles/i, "美国-洛杉矶");
-    name = name。替换(/Netherlands/i, "荷兰");
-    name = name.replace(/Russia St\. Petersburg/i, "俄罗斯-圣彼得堡");
-    name = name.replace(/Russia Moscow/i, "俄罗斯-莫斯科");
-    name = name.replace(/Germany/i, "德国");
-    name = name.replace(/Switzerland/i, "瑞士");
-    name = name.replace(/France/i, "法国");
-    name = name.替换(/United Kingdom/i, "英国");
-    name = name.替换(/Sweden/i, "瑞典");
-    name = name.替换(/Bulgaria/i, "保加利亚");
-    name = name.替换(/Austria/i, "奥地利");
-    name = name.替换(/Ireland/i, "爱尔兰");
-    name = name.替换(/Turkey/i, "土耳其");
-    name = name.替换(/Hungary/i, "匈牙利");
-    name = name.替换(/Korea/i, "韩国");
-    name = name.替换(/Canada/i, "加拿大");
-    name = name.替换(/Australia Sydney/i, "澳大利亚-悉尼");
-    name = name.替换(/United Arab Emirates/i, "阿拉伯联合酋长国");
-    name = name.替换(/Indonesia/i, "印度尼西亚");
-    name = name.替换(/India/i, "印度");
-    name = name.替换(/Brazil/i, "巴西");
-    name = name.替换(/Argentina/i, "阿根廷");
-    name = name.替换(/Chile/i, "智利");
+    name = name。替换(/Japan 01 \(DIP Japan-Tokyo\)/i, "日本-东京（🏠独享IP）");
+    name = (/Singapore 01 \(DIP Singapore\)/i, "新加坡-西北区（🏠独享IP）");
+    name = (/USA Los Angeles 01 \(DIP USA-Los Angeles\)/i, "美国-洛杉矶（🏠独享IP）");
+    name = (/Hong Kong/i, "香港");
+    name = (/Taiwan/i, "台湾");
+    name = (/Macao/i, "澳门");
+    name = (/Japan/i, "日本");
+    name = (/Singapore/i, "新加坡");
+    name = (/USA Seattle/i, "美国-西雅图");
+    name = (/USA San Jose/i, "美国-圣何塞");
+    name = (/USA Los Angeles/i, "美国-洛杉矶");
+    name = (/Netherlands/i, "荷兰");
+    name = (/Russia St\. Petersburg/i, "俄罗斯-圣彼得堡");
+    name = (/Russia Moscow/i, "俄罗斯-莫斯科");
+    name = (/Germany/i, "德国");
+    name = (/Switzerland/i, "瑞士");
+    name = (/France/i, "法国");
+    name = (/United Kingdom/i, "英国");
+    name = (/Sweden/i, "瑞典");
+    name = (/Bulgaria/i, "保加利亚");
+    name = (/Austria/i, "奥地利");
+    name = (/Ireland/i, "爱尔兰");
+    name = (/Turkey/i, "土耳其");
+    name = (/Hungary/i, "匈牙利");
+    name = (/Korea/i, "韩国");
+    name = (/Canada/i, "加拿大");
+    name = (/Australia Sydney/i, "澳大利亚-悉尼");
+    name = (/United Arab Emirates/i, "阿拉伯联合酋长国");
+    name = (/Indonesia/i, "印度尼西亚");
+    name = (/India/i, "印度");
+    name = (/Brazil/i, "巴西");
+    name = (/Argentina/i, "阿根廷");
+    name = (/Chile/i, "智利");
 
     // 添加国家或地区Emoji旗帜
     for (const key in emojiMap) {
@@ -219,9 +219,9 @@ function main(config) {
 	  icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png",
 	  url: "http://cp.cloudflare.com",
 	  type: "url-test",
-    interval: 600,
-    timeout: 3000,
-    tolerance: 50,
+      interval: 600,
+      timeout: 3000,
+      tolerance: 50,
 	  proxies: hkAutoNodes
 	},
 	{ 
@@ -229,9 +229,9 @@ function main(config) {
 	  icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png",
 	  url: "http://cp.cloudflare.com",
 	  type: "url-test",
-    interval: 600,
-    timeout: 3000,
-    tolerance: 50,
+      interval: 600,
+      timeout: 3000,
+      tolerance: 50,
 	  proxies: jpAutoNodes
 	},
 	{ 
@@ -239,9 +239,9 @@ function main(config) {
 	  icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png",
 	  url: "http://cp.cloudflare.com",
 	  type: "url-test",
-    interval: 600,
-    timeout: 3000,
-    tolerance: 50,
+      interval: 600,
+      timeout: 3000,
+      tolerance: 50,
 	  proxies: sgAutoNodes
 	},
 	{ 
@@ -249,9 +249,9 @@ function main(config) {
 	  icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png",
 	  url: "http://cp.cloudflare.com",
 	  type: "url-test",
-    interval: 600,
-    timeout: 3000,
-    tolerance: 80,
+      interval: 600,
+      timeout: 3000,
+      tolerance: 80,
 	  proxies: usAutoNodes
 	}
   ];
