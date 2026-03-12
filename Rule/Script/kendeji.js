@@ -134,7 +134,7 @@ function main(config) {
       url: "http://cp.cloudflare.com",
       type: "select",
       proxies: ["🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国｜⚡AUTO"]
-    },
+    }，
     {
       name: "TikTok",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/TikTok.png",
@@ -189,9 +189,9 @@ function main(config) {
 	  icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png",
 	  url: "http://cp.cloudflare.com",
 	  type: "url-test",
-    interval: 600,
-    timeout: 3000,
-    tolerance: 50,
+      interval: 600,
+      timeout: 3000,
+      tolerance: 50,
 	  proxies: hkAutoNodes
 	},
 	{ 
@@ -199,9 +199,9 @@ function main(config) {
 	  icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png",
 	  url: "http://cp.cloudflare.com",
 	  type: "url-test",
-    interval: 600,
-    timeout: 3000,
-    tolerance: 50,
+      interval: 600,
+      timeout: 3000,
+      tolerance: 50,
 	  proxies: jpAutoNodes
 	},
 	{ 
@@ -209,9 +209,9 @@ function main(config) {
 	  icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png",
 	  url: "http://cp.cloudflare.com",
 	  type: "url-test",
-    interval: 600,
-    timeout: 3000,
-    tolerance: 50,
+      interval: 600,
+      timeout: 3000,
+      tolerance: 50,
 	  proxies: sgAutoNodes
 	},
 	{ 
@@ -219,9 +219,9 @@ function main(config) {
 	  icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png",
 	  url: "http://cp.cloudflare.com",
 	  type: "url-test",
-    interval: 600,
-    timeout: 3000,
-    tolerance: 80,
+      interval: 600,
+      timeout: 3000,
+      tolerance: 80,
 	  proxies: usAutoNodes
 	}
   ];
@@ -285,4 +285,5 @@ function main(config) {
   ];
 
   return config;
+
 }
