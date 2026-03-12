@@ -73,39 +73,39 @@ function main(config) {
     name = name.trim();
     
     // 节点重命名
-    name = name。替换(/Japan 01 \(DIP Japan-Tokyo\)/i, "日本-东京（🏠独享IP）");
-    name = (/Singapore 01 \(DIP Singapore\)/i, "新加坡-西北区（🏠独享IP）");
-    name = (/USA Los Angeles 01 \(DIP USA-Los Angeles\)/i, "美国-洛杉矶（🏠独享IP）");
-    name = (/Hong Kong/i, "香港");
-    name = (/Taiwan/i, "台湾");
-    name = (/Macao/i, "澳门");
-    name = (/Japan/i, "日本");
-    name = (/Singapore/i, "新加坡");
-    name = (/USA Seattle/i, "美国-西雅图");
-    name = (/USA San Jose/i, "美国-圣何塞");
-    name = (/USA Los Angeles/i, "美国-洛杉矶");
-    name = (/Netherlands/i, "荷兰");
-    name = (/Russia St\. Petersburg/i, "俄罗斯-圣彼得堡");
-    name = (/Russia Moscow/i, "俄罗斯-莫斯科");
-    name = (/Germany/i, "德国");
-    name = (/Switzerland/i, "瑞士");
-    name = (/France/i, "法国");
-    name = (/United Kingdom/i, "英国");
-    name = (/Sweden/i, "瑞典");
-    name = (/Bulgaria/i, "保加利亚");
-    name = (/Austria/i, "奥地利");
-    name = (/Ireland/i, "爱尔兰");
-    name = (/Turkey/i, "土耳其");
-    name = (/Hungary/i, "匈牙利");
-    name = (/Korea/i, "韩国");
-    name = (/Canada/i, "加拿大");
-    name = (/Australia Sydney/i, "澳大利亚-悉尼");
-    name = (/United Arab Emirates/i, "阿拉伯联合酋长国");
-    name = (/Indonesia/i, "印度尼西亚");
-    name = (/India/i, "印度");
-    name = (/Brazil/i, "巴西");
-    name = (/Argentina/i, "阿根廷");
-    name = (/Chile/i, "智利");
+    name = name.replace(/Japan 01 \(DIP Japan-Tokyo\)/i, "日本-东京（🏠独享IP）");
+    name = name.replace(/Singapore 01 \(DIP Singapore\)/i, "新加坡-西北区（🏠独享IP）");
+    name = name.replace(/USA Los Angeles 01 \(DIP USA-Los Angeles\)/i, "美国-洛杉矶（🏠独享IP）");
+    name = name.replace(/Hong Kong/i, "香港");
+    name = name.replace(/Taiwan/i, "台湾");
+    name = name.replace(/Macao/i, "澳门");
+    name = name.replace(/Japan/i, "日本");
+    name = name.replace(/Singapore/i, "新加坡");
+    name = name.replace(/USA Seattle/i, "美国-西雅图");
+    name = name.replace(/USA San Jose/i, "美国-圣何塞");
+    name = name.replace(/USA Los Angeles/i, "美国-洛杉矶");
+    name = name.replace(/Netherlands/i, "荷兰");
+    name = name.replace(/Russia St\. Petersburg/i， "俄罗斯-圣彼得堡");
+    name = name.replace(/Russia Moscow/i， "俄罗斯-莫斯科");
+    name = name.replace(/Germany/i, "德国");
+    name = name.replace(/Switzerland/i, "瑞士");
+    name = name.replace(/France/i, "法国");
+    name = name.replace(/United Kingdom/i, "英国");
+    name = name.replace(/Sweden/i, "瑞典");
+    name = name.replace(/Bulgaria/i, "保加利亚");
+    name = name.replace(/Austria/i, "奥地利");
+    name = name.replace(/Ireland/i, "爱尔兰");
+    name = name.replace(/Turkey/i, "土耳其");
+    name = name.replace(/Hungary/i, "匈牙利");
+    name = name.replace(/Korea/i, "韩国");
+    name = name.replace(/Canada/i, "加拿大");
+    name = name.replace(/Australia Sydney/i, "澳大利亚-悉尼");
+    name = name.replace(/United Arab Emirates/i, "阿拉伯联合酋长国");
+    name = name.replace(/Indonesia/i, "印度尼西亚");
+    name = name.replace(/India/i, "印度");
+    name = name.replace(/Brazil/i, "巴西");
+    name = name.replace(/Argentina/i, "阿根廷");
+    name = name.replace(/Chile/i, "智利");
 
     // 添加国家或地区Emoji旗帜
     for (const key in emojiMap) {
@@ -164,7 +164,7 @@ function main(config) {
       url: "http://cp.cloudflare.com",
       type: "select",
       proxies: [...sgDIP, ...usDIP, "🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国｜⚡AUTO"]
-    },
+    }，
     {
       name: "TikTok",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/TikTok.png",
@@ -190,9 +190,9 @@ function main(config) {
       name: "谷歌",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Google.png",
       url: "http://cp.cloudflare.com",
-      type: "select",
+      输入: "select",
       proxies: [...sgDIP, ...usDIP, "🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国｜⚡AUTO"]
-    },
+    }，
     {
       name: "苹果",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Apple.png",
