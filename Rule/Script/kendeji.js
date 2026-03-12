@@ -55,13 +55,6 @@ function main(config) {
     }
   });
 
-  // 基础配置覆写
-  const keysToRemove = ['ipv6', 'allow-lan', 'log-level', 'tun'];
-  keysToRemove.forEach(key => delete config[key]);
-  config['mixed-port'] = 7890;
-  config['external-controller'] = '0.0.0.0:9090';
-  config['mode'] = 'Rule';
-  
   // Emoji旗帜列表
   const emojiMap = {
     "阿联酋|阿拉伯联合酋长国": "🇦🇪", "阿根廷": "🇦🇷", "奥地利": "🇦🇹", "澳大利亚|澳洲": "🇦🇺", "孟加拉": "🇧🇩", "比利时": "🇧🇪", "保加利亚": "🇧🇬", "巴林": "🇧🇭", "文莱": "🇧🇳", "巴西": "🇧🇷", "白俄罗斯": "🇧🇾", "加拿大": "🇨🇦", "瑞士": "🇨🇭", "智利": "🇨🇱", "中国": "🇨🇳", "捷克": "🇨🇿", "德国": "🇩🇪", "丹麦": "🇩🇰", "爱沙尼亚": "🇪🇪", "埃及": "🇪🇬", "西班牙": "🇪🇸", "欧盟|欧洲": "🇪🇺", "芬兰": "🇫🇮", "法国": "🇫🇷", "英国": "🇬🇧", "格陵兰": "🇬🇱", "希腊": "🇬🇷", "香港": "🇭🇰", "克罗地亚": "🇭🇷", "匈牙利": "🇭🇺", "印尼|印度尼西亚": "🇮🇩", "爱尔兰": "🇮🇪", "以色列": "🇮🇱", "印度": "🇮🇳", "冰岛": "🇮🇸", "意大利": "🇮🇹", "日本": "🇯🇵", "韩国": "🇰🇷", "立陶宛": "🇱🇹", "卢森堡": "🇱🇺", "拉脱维亚": "🇱🇻", "利比亚": "🇱🇾", "摩洛哥": "🇲🇦", "摩纳哥": "🇲🇨", "摩尔多瓦": "🇲🇩", "黑山": "🇲🇪", "澳门": "🇲🇴", "墨西哥": "🇲🇽", "马来西亚": "🇲🇾", "尼日利亚": "🇳🇬", "荷兰": "🇳🇱", "挪威": "🇳🇴", "新西兰": "🇳🇿", "巴基斯坦": "🇵🇰", "波兰": "🇵🇱", "葡萄牙": "🇵🇹", "罗马尼亚": "🇷🇴", "塞尔维亚": "🇷🇸", "俄罗斯": "🇷🇺", "沙特阿拉伯": "🇸🇦", "瑞典": "🇸🇪", "新加坡": "🇸🇬", "斯洛伐克": "🇸🇰", "泰国": "🇹🇭", "土耳其": "🇹🇷", "台湾": "🇹🇼", "乌克兰": "🇺🇦", "美国": "🇺🇸", "越南": "🇻🇳", "南非": "🇿🇦"
@@ -72,23 +65,23 @@ function main(config) {
     let name = proxy.name;
     
     // 清除原来的Emoji旗帜
-    name = name.replace(/[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF][\u200D|\uFE0F]|[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF]|[0-9|*|#]\uFE0F\u20E3|[0-9|#]\u20E3|[\u203C-\u3299]\uFE0F\u200D|[\u203C-\u3299]\uFE0F|[\u2122-\u2B55]|\u303D|[\A9|\AE]\u3030|\uA9|\uAE|\u3030/g, "");
+    name = name.替换(/[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF][\u200D|\uFE0F]|[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF]|[0-9|*|#]\uFE0F\u20E3|[0-9|#]\u20E3|[\u203C-\u3299]\uFE0F\u200D|[\u203C-\u3299]\uFE0F|[\u2122-\u2B55]|\u303D|[\A9|\AE]\u3030|\uA9|\uAE|\u3030/g, "");
     name = name.trim();
 
     // 节点重命名
-    name = name.replace(/HK/i, "香港");
-    name = name.replace(/TW/i, "台湾");
-    name = name.replace(/MO/i, "澳门");
-    name = name.replace(/JP/i, "日本");
-    name = name.replace(/KR/i, "韩国");
-    name = name.replace(/SG/i, "新加坡");
-    name = name.replace(/US/i, "美国");
-    name = name.replace(/UK|GB/i, "英国");
-    name = name.replace(/FR/i, "法国");
-    name = name.replace(/DE/i, "德国");
-    name = name.replace(/NL/i, "荷兰");
-    name = name.replace(/CA/i, "加拿大");
-    name = name.replace(/AU/i, "澳大利亚");
+    name = name.替换(/HK/i, "香港");
+    name = name.替换(/TW/i, "台湾");
+    name = name.替换(/MO/i, "澳门");
+    name = name.替换(/JP/i, "日本");
+    name = name.替换(/KR/i, "韩国");
+    name = name.替换(/SG/i, "新加坡");
+    name = name.替换(/US/i, "美国");
+    name = name.替换(/UK|GB/i, "英国");
+    name = name。替换(/FR/i, "法国");
+    name = name.替换(/DE/i, "德国");
+    name = name.替换(/NL/i, "荷兰");
+    name = name.替换(/CA/i, "加拿大");
+    name = name.替换(/AU/i, "澳大利亚");
 
     // 添加国家或地区Emoji旗帜
     for (const key in emojiMap) {
@@ -288,4 +281,5 @@ function main(config) {
   ];
 
   return config;
+
 }
