@@ -44,11 +44,16 @@ function main(config) {
           '240.0.0.0/4'
         ],
         'domain': [
+          '+.telegram.org',
           '+.google.com',
-          '+.facebook.com',
           '+.youtube.com',
+		  '+.tiktok.com',
+          '+.whatsapp.com',
+          '+.discord.com',
           '+.twitter.com',
-          '+.telegram.org'
+          '+.facebook.com',
+          '+.instagram.com',
+          '+.reddit.com'
         ]
       }
     }
@@ -311,4 +316,5 @@ function main(config) {
   ];
 
   return config;
+
 }
