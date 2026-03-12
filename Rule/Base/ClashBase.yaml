@@ -41,8 +41,13 @@ dns:
     ipcidr:
       - 240.0.0.0/4
     domain:
-      - '+.google.com'
-      - '+.facebook.com'
-      - '+.youtube.com'
-      - '+.twitter.com'
       - '+.telegram.org'
+      - '+.google.com'
+      - '+.youtube.com'
+      - '+.tiktok.com'
+      - '+.whatsapp.com'
+      - '+.discord.com'
+      - '+.twitter.com'
+      - '+.facebook.com'
+      - '+.instagram.com'
+      - '+.reddit.com'
