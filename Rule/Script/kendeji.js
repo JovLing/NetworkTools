@@ -59,6 +59,7 @@ function main(config) {
     }
   });
   
+  // 获取原配置的节点
   const proxies = config.proxies || [];
   
   // Emoji旗帜列表
