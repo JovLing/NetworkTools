@@ -113,77 +113,77 @@ function main(config) {
   // 策略组
   config['proxy-groups'] = [
     {
-      name: "节点选择",
+      name: "节点选择｜🐔肯の机",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/NetworkProxy/Airport.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: ["🇭🇰 香港｜⚡AUTO", "🇯🇵 日本｜⚡AUTO", "🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国｜⚡AUTO", ...otherNodes]
     },
     {
-      name: "电报",
+      name: "电报｜🐔肯の机",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Telegram.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: ["🇭🇰 香港｜⚡AUTO", "🇯🇵 日本｜⚡AUTO"]
     },
     {
-      name: "海外影视",
+      name: "海外影视｜🐔肯の机",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/GlobalMedia.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: ["🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国｜⚡AUTO"]
     },
     {
-      name: "海外社交平台",
+      name: "海外社交平台｜🐔肯の机",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/SocialContact.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: ["🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国｜⚡AUTO"]
     },
     {
-      name: "TikTok",
+      name: "TikTok｜🐔肯の机",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/TikTok.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: ["🇯🇵 日本｜⚡AUTO", "🇸🇬 新加坡｜⚡AUTO"]
     },
     {
-      name: "AI",
+      name: "AI｜🐔肯の机",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/AI.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: ["🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国｜⚡AUTO"]
     },
     {
-      name: "游戏平台",
+      name: "游戏平台｜🐔肯の机",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Games.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: ["DIRECT", "🇭🇰 香港｜⚡AUTO"]
     },
     {
-      name: "谷歌",
+      name: "谷歌｜🐔肯の机",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Google.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: ["🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国｜⚡AUTO"]
     },
     {
-      name: "苹果",
+      name: "苹果｜🐔肯の机",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Apple.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: ["DIRECT", "🇭🇰 香港｜⚡AUTO", "🇺🇸 美国｜⚡AUTO"]
     },
     {
-      name: "微软",
+      name: "微软｜🐔肯の机",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Microsoft.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: ["DIRECT", "🇭🇰 香港｜⚡AUTO", "🇺🇸 美国｜⚡AUTO"]
     },
     {
-      name: "币圈",
+      name: "币圈｜🐔肯の机",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Crypto.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
@@ -226,7 +226,7 @@ function main(config) {
 	  type: "url-test",
 	  interval: 600,
 	  timeout: 3000,
-	  tolerance: 50,
+	  tolerance: 80,
 	  proxies: usAutoNodes
 	}
   ];
@@ -260,29 +260,30 @@ function main(config) {
   // 路由规则
   config['rules'] = [
     "RULE-SET,localhost,DIRECT",
-    "RULE-SET,telegram,电报",
-    "RULE-SET,whatsapp,海外社交平台",
-    "RULE-SET,discord,海外社交平台",
-    "RULE-SET,twitter,海外社交平台",
-    "RULE-SET,facebook,海外社交平台",
-    "RULE-SET,instagram,海外社交平台",
-    "RULE-SET,reddit,海外社交平台",
-    "RULE-SET,twitch,海外社交平台",
-    "RULE-SET,ai,AI",
-    "RULE-SET,tiktok,TikTok",
-    "RULE-SET,google,谷歌",
-    "RULE-SET,apple,苹果",
-    "RULE-SET,microsoft,微软",
-    "RULE-SET,steam,游戏平台",
-    "RULE-SET,epic,游戏平台",
-    "RULE-SET,xbox,游戏平台",
-    "RULE-SET,netflix,海外影视",
-    "RULE-SET,disneyplus,海外影视",
-    "RULE-SET,hbo,海外影视",
-    "RULE-SET,crypto,币圈",
+    "RULE-SET,telegram,电报｜🐔肯の机",
+    "RULE-SET,whatsapp,海外社交平台｜🐔肯の机",
+    "RULE-SET,discord,海外社交平台｜🐔肯の机",
+    "RULE-SET,twitter,海外社交平台｜🐔肯の机",
+    "RULE-SET,facebook,海外社交平台｜🐔肯の机",
+    "RULE-SET,instagram,海外社交平台｜🐔肯の机",
+    "RULE-SET,reddit,海外社交平台｜🐔肯の机",
+    "RULE-SET,twitch,海外社交平台｜🐔肯の机",
+    "RULE-SET,ai,AI｜🐔肯の机",
+    "RULE-SET,tiktok,TikTok｜🐔肯の机",
+    "RULE-SET,google,谷歌｜🐔肯の机",
+    "RULE-SET,apple,苹果｜🐔肯の机",
+    "RULE-SET,microsoft,微软｜🐔肯の机",
+    "RULE-SET,steam,游戏平台｜🐔肯の机",
+    "RULE-SET,epic,游戏平台｜🐔肯の机",
+    "RULE-SET,xbox,游戏平台｜🐔肯の机",
+    "RULE-SET,netflix,海外影视｜🐔肯の机",
+    "RULE-SET,disneyplus,海外影视｜🐔肯の机",
+    "RULE-SET,hbo,海外影视｜🐔肯の机",
+    "RULE-SET,crypto,币圈｜🐔肯の机",
     "RULE-SET,china_domain,DIRECT",
+    "GEOSITE,cn,DIRECT",
     "GEOIP,CN,DIRECT",
-    "MATCH,节点选择"
+    "MATCH,节点选择｜🐔肯の机"
   ];
 
   return config;
