@@ -1,49 +1,49 @@
 function main(config) {
 
-  //基础配置
+  // 基础配置
   Object.assign(config, {
-    'mixed-port' 7890,
-    'external-controller' '0.0.0.09090',
-    'mode' 'Rule',
-    'dns' {
-      'enable' true,
-      'ipv6' false,
-      'listen' '0.0.0.01053',
-      'enhanced-mode' 'fake-ip',
-      'fake-ip-range' '198.18.0.116',
-      'fake-ip-filter' [
-        '.lan',
-        '.localdomain',
-        '.localhost',
-        '.local',
-        '.msftncsi.com',
-        '.msftconnecttest.com',
-        'time..com',
-		'time..gov',
-        'time..edu.cn',
-        'time..apple.com',
-        'ntp..com',
-		'stun..'
+    'mixed-port': 7890,
+    'external-controller': '0.0.0.0:9090',
+    'mode': 'Rule',
+    'dns': {
+      'enable': true,
+      'ipv6': false,
+      'listen': '0.0.0.0:1053',
+      'enhanced-mode': 'fake-ip',
+      'fake-ip-range': '198.18.0.1/16',
+      'fake-ip-filter': [
+        '*.lan',
+        '*.localdomain',
+        '*.localhost',
+        '*.local',
+        '*.msftncsi.com',
+        '*.msftconnecttest.com',
+        'time.*.com',
+		'time.*.gov',
+        'time.*.edu.cn',
+        'time.*.apple.com',
+        'ntp.*.com',
+		'stun.*.*'
       ],
-      'default-nameserver' [
+      'default-nameserver': [
         '119.29.29.29',
 		'223.5.5.5'
       ],
-      'nameserver' [
-        'https119.29.29.29dns-query',
-        'https223.5.5.5dns-query'
+      'nameserver': [
+        'https://119.29.29.29/dns-query',
+        'https://223.5.5.5/dns-query',
       ],
-      'fallback' [
-        'https8.8.8.8dns-query',
-        'https1.1.1.1dns-query'
+      'fallback': [
+        'https://8.8.8.8/dns-query',
+        'https://1.1.1.1/dns-query'
       ],
-      'fallback-filter' {
-        'geoip' true,
-        'geoip-code' 'CN',
-        'ipcidr' [
-          '240.0.0.04'
+      'fallback-filter': {
+        'geoip': true,
+        'geoip-code': 'CN',
+        'ipcidr': [
+          '240.0.0.0/4'
         ],
-        'domain' [
+        'domain': [
           '+.telegram.org',
           '+.google.com',
           '+.youtube.com',
