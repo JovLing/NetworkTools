@@ -1,6 +1,6 @@
 function main(config) {
 
-   基础配置
+  //基础配置
   Object.assign(config, {
     'mixed-port' 7890,
     'external-controller' '0.0.0.09090',
@@ -59,75 +59,75 @@ function main(config) {
     }
   });
 
-   过滤节点
-  const excludeRegex = Premium200.00 GTraffic ResetExpire Datei;
-  config.proxies = (config.proxies  []).filter(p = !excludeRegex.test(p.name));
+  // 过滤节点
+  const excludeRegex = /Premium|200\.00 G|Traffic Reset|Expire Date/i;
+  config.proxies = (config.proxies || []).filter(p => !excludeRegex.test(p.name));
   const proxies = config.proxies;
 
-   Emoji旗帜列表
+  // Emoji旗帜列表
   const emojiMap = {
-    阿联酋阿拉伯联合酋长国 🇦🇪, 阿根廷 🇦🇷, 奥地利 🇦🇹, 澳大利亚澳洲 🇦🇺, 孟加拉 🇧🇩, 比利时 🇧🇪, 保加利亚 🇧🇬, 巴林 🇧🇭, 文莱 🇧🇳, 巴西 🇧🇷, 白俄罗斯 🇧🇾, 加拿大 🇨🇦, 瑞士 🇨🇭, 智利 🇨🇱, 中国 🇨🇳, 捷克 🇨🇿, 德国 🇩🇪, 丹麦 🇩🇰, 爱沙尼亚 🇪🇪, 埃及 🇪🇬, 西班牙 🇪🇸, 欧盟欧洲 🇪🇺, 芬兰 🇫🇮, 法国 🇫🇷, 英国 🇬🇧, 格陵兰 🇬🇱, 希腊 🇬🇷, 香港 🇭🇰, 克罗地亚 🇭🇷, 匈牙利 🇭🇺, 印尼印度尼西亚 🇮🇩, 爱尔兰 🇮🇪, 以色列 🇮🇱, 印度 🇮🇳, 冰岛 🇮🇸, 意大利 🇮🇹, 日本 🇯🇵, 韩国 🇰🇷, 立陶宛 🇱🇹, 卢森堡 🇱🇺, 拉脱维亚 🇱🇻, 利比亚 🇱🇾, 摩洛哥 🇲🇦, 摩纳哥 🇲🇨, 摩尔多瓦 🇲🇩, 黑山 🇲🇪, 澳门 🇲🇴, 墨西哥 🇲🇽, 马来西亚 🇲🇾, 尼日利亚 🇳🇬, 荷兰 🇳🇱, 挪威 🇳🇴, 新西兰 🇳🇿, 巴基斯坦 🇵🇰, 波兰 🇵🇱, 葡萄牙 🇵🇹, 罗马尼亚 🇷🇴, 塞尔维亚 🇷🇸, 俄罗斯 🇷🇺, 沙特阿拉伯 🇸🇦, 瑞典 🇸🇪, 新加坡 🇸🇬, 斯洛伐克 🇸🇰, 泰国 🇹🇭, 土耳其 🇹🇷, 台湾 🇹🇼, 乌克兰 🇺🇦, 美国 🇺🇸, 越南 🇻🇳, 南非 🇿🇦
+    "阿联酋|阿拉伯联合酋长国": "🇦🇪", "阿根廷": "🇦🇷", "奥地利": "🇦🇹", "澳大利亚|澳洲": "🇦🇺", "孟加拉": "🇧🇩", "比利时": "🇧🇪", "保加利亚": "🇧🇬", "巴林": "🇧🇭", "文莱": "🇧🇳", "巴西": "🇧🇷", "白俄罗斯": "🇧🇾", "加拿大": "🇨🇦", "瑞士": "🇨🇭", "智利": "🇨🇱", "中国": "🇨🇳", "捷克": "🇨🇿", "德国": "🇩🇪", "丹麦": "🇩🇰", "爱沙尼亚": "🇪🇪", "埃及": "🇪🇬", "西班牙": "🇪🇸", "欧盟|欧洲": "🇪🇺", "芬兰": "🇫🇮", "法国": "🇫🇷", "英国": "🇬🇧", "格陵兰": "🇬🇱", "希腊": "🇬🇷", "香港": "🇭🇰", "克罗地亚": "🇭🇷", "匈牙利": "🇭🇺", "印尼|印度尼西亚": "🇮🇩", "爱尔兰": "🇮🇪", "以色列": "🇮🇱", "印度": "🇮🇳", "冰岛": "🇮🇸", "意大利": "🇮🇹", "日本": "🇯🇵", "韩国": "🇰🇷", "立陶宛": "🇱🇹", "卢森堡": "🇱🇺", "拉脱维亚": "🇱🇻", "利比亚": "🇱🇾", "摩洛哥": "🇲🇦", "摩纳哥": "🇲🇨", "摩尔多瓦": "🇲🇩", "黑山": "🇲🇪", "澳门": "🇲🇴", "墨西哥": "🇲🇽", "马来西亚": "🇲🇾", "尼日利亚": "🇳🇬", "荷兰": "🇳🇱", "挪威": "🇳🇴", "新西兰": "🇳🇿", "菲律宾": "🇵🇭", "巴基斯坦": "🇵🇰", "波兰": "🇵🇱", "葡萄牙": "🇵🇹", "罗马尼亚": "🇷🇴", "塞尔维亚": "🇷🇸", "俄罗斯": "🇷🇺", "沙特阿拉伯": "🇸🇦", "瑞典": "🇸🇪", "新加坡": "🇸🇬", "斯洛伐克": "🇸🇰", "泰国": "🇹🇭", "土耳其": "🇹🇷", "台湾": "🇹🇼", "乌克兰": "🇺🇦", "美国": "🇺🇸", "越南": "🇻🇳", "南非": "🇿🇦"
   };
   
-   遍历节点
-  proxies.forEach(proxy = {
+  // 遍历节点
+  proxies.forEach(proxy => {
     let name = proxy.name;
     
-     清除原来的Emoji旗帜
-    name = name.replace([uD83CuD83DuD83E][uDC00-uDFFF][u200DuFE0F][uD83CuD83DuD83E][uDC00-uDFFF][0-9#]uFE0Fu20E3[0-9#]u20E3[u203C-u3299]uFE0Fu200D[u203C-u3299]uFE0F[u2122-u2B55]u303D[A9AE]u3030uA9uAEu3030g, );
+    // 清除原来的Emoji旗帜
+    name = name.replace(/[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF][\u200D|\uFE0F]|[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF]|[0-9|*|#]\uFE0F\u20E3|[0-9|#]\u20E3|[\u203C-\u3299]\uFE0F\u200D|[\u203C-\u3299]\uFE0F|[\u2122-\u2B55]|\u303D|[\A9|\AE]\u3030|\uA9|\uAE|\u3030/g, "");
     name = name.trim();
     
-     节点重命名
-    name = name.replace(Japan 01 (DIP Japan-Tokyo)i, 日本-东京（🏠独享IP）);
-    name = name.replace(Singapore 01 (DIP Singapore)i, 新加坡-西北区（🏠独享IP）);
-    name = name.replace(USA Los Angeles 01 (DIP USA-Los Angeles)i, 美国-洛杉矶（🏠独享IP）);
-    name = name.replace(Hong Kongi, 香港);
-    name = name.replace(Taiwani, 台湾);
-    name = name.replace(Macaoi, 澳门);
-    name = name.replace(Japani, 日本);
-    name = name.replace(Singaporei, 新加坡);
-    name = name.replace(USA Seattlei, 美国-西雅图);
-    name = name.replace(USA San Josei, 美国-圣何塞);
-    name = name.replace(USA Los Angelesi, 美国-洛杉矶);
-    name = name.replace(Netherlandsi, 荷兰);
-    name = name.replace(Russia St. Petersburgi, 俄罗斯-圣彼得堡);
-    name = name.replace(Russia Moscowi, 俄罗斯-莫斯科);
-    name = name.replace(Germanyi, 德国);
-    name = name.replace(Switzerlandi, 瑞士);
-    name = name.replace(Francei, 法国);
-    name = name.replace(United Kingdomi, 英国);
-    name = name.replace(Swedeni, 瑞典);
-    name = name.replace(Bulgariai, 保加利亚);
-    name = name.replace(Austriai, 奥地利);
-    name = name.replace(Irelandi, 爱尔兰);
-    name = name.replace(Turkeyi, 土耳其);
-    name = name.replace(Hungaryi, 匈牙利);
-    name = name.replace(Koreai, 韩国);
-    name = name.replace(Canadai, 加拿大);
-    name = name.replace(Australia Sydneyi, 澳大利亚-悉尼);
-    name = name.replace(United Arab Emiratesi, 阿拉伯联合酋长国);
-    name = name.replace(Indonesiai, 印度尼西亚);
-    name = name.replace(Indiai, 印度);
-    name = name.replace(Brazili, 巴西);
-    name = name.replace(Argentinai, 阿根廷);
-    name = name.replace(Chilei, 智利);
+    // 节点重命名
+    name = name.replace(/Japan 01 \(DIP Japan-Tokyo\)/i, "日本-东京（🏠独享IP）");
+    name = name.replace(/Singapore 01 \(DIP Singapore\)/i, "新加坡-西北区（🏠独享IP）");
+    name = name.replace(/USA Los Angeles 01 \(DIP USA-Los Angeles\)/i, "美国-洛杉矶（🏠独享IP）");
+    name = name.replace(/Hong Kong/i, "香港");
+    name = name.replace(/Taiwan/i, "台湾");
+    name = name.replace(/Macao/i, "澳门");
+    name = name.replace(/Japan/i, "日本");
+    name = name.replace(/Singapore/i, "新加坡");
+    name = name.replace(/USA Seattle/i, "美国-西雅图");
+    name = name.replace(/USA San Jose/i, "美国-圣何塞");
+    name = name.replace(/USA Los Angeles/i, "美国-洛杉矶");
+    name = name.replace(/Netherlands/i, "荷兰");
+    name = name.replace(/Russia St\. Petersburg/i, "俄罗斯-圣彼得堡");
+    name = name.replace(/Russia Moscow/i, "俄罗斯-莫斯科");
+    name = name.replace(/Germany/i, "德国");
+    name = name.replace(/Switzerland/i, "瑞士");
+    name = name.replace(/France/i, "法国");
+    name = name.replace(/United Kingdom/i, "英国");
+    name = name.replace(/Sweden/i, "瑞典");
+    name = name.replace(/Bulgaria/i, "保加利亚");
+    name = name.replace(/Austria/i, "奥地利");
+    name = name.replace(/Ireland/i, "爱尔兰");
+    name = name.replace(/Turkey/i, "土耳其");
+    name = name.replace(/Hungary/i, "匈牙利");
+    name = name.replace(/Korea/i, "韩国");
+    name = name.replace(/Canada/i, "加拿大");
+    name = name.replace(/Australia Sydney/i, "澳大利亚-悉尼");
+    name = name.replace(/United Arab Emirates/i, "阿拉伯联合酋长国");
+    name = name.replace(/Indonesia/i, "印度尼西亚");
+    name = name.replace(/India/i, "印度");
+    name = name.replace(/Brazil/i, "巴西");
+    name = name.replace(/Argentina/i, "阿根廷");
+    name = name.replace(/Chile/i, "智利");
 
-     添加国家或地区Emoji旗帜
+    // 添加国家或地区Emoji旗帜
     for (const key in emojiMap) {
-      if (new RegExp(key, i).test(name) && !name.includes(emojiMap[key])) {
+      if (new RegExp(key, "i").test(name) && !name.includes(emojiMap[key])) {
         name = `${emojiMap[key]} ${name}`;
         break;
       }
     } 
     proxy.name = name;
   });
-  const updatedProxyNames = proxies.map(p = p.name);
+  const updatedProxyNames = proxies.map(p => p.name);
 
-   节点提取
-  const getNodes = (includeRegex, excludeRegex) = {
-    return updatedProxyNames.filter(name = {
-      let match = includeRegex  includeRegex.test(name)  true;
-      let notMatch = excludeRegex  !excludeRegex.test(name)  true;
+  // 节点提取
+  const getNodes = (includeRegex, excludeRegex) => {
+    return updatedProxyNames.filter(name => {
+      let match = includeRegex ? includeRegex.test(name) : true;
+      let notMatch = excludeRegex ? !excludeRegex.test(name) : true;
       return match && notMatch;
     });
   };
@@ -372,5 +372,4 @@ function main(config) {
   ];
 
   return config;
-
 }
