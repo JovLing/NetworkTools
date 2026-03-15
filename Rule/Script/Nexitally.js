@@ -71,6 +71,7 @@ function main(config) {
   
   // 遍历节点
   proxies.forEach(proxy => {
+    if (proxy.name.includes("TCVM")) return;
     let name = proxy.name;
     
     // 清除原来的Emoji旗帜
@@ -134,16 +135,16 @@ function main(config) {
   const jpDIP = getNodes(/日本.*独享IP/i, null);
   const sgDIP = getNodes(/新加坡.*独享IP/i, null);
   const usDIP = getNodes(/美国.*独享IP/i, null);
-  const hkAutoNodes = getNodes(/香港/i, /独享IP/i);
-  const jpAutoNodes = getNodes(/日本/i, /独享IP/i);
-  const sgAutoNodes = getNodes(/新加坡/i, /独享IP/i);
-  const usSeattleAutoNodes = getNodes(/美国-西雅图/i, /独享IP/i);
-  const usSanjoseAutoNodes = getNodes(/美国-圣何塞/i, /独享IP/i);
-  const usLosangelesAutoNodes = getNodes(/美国-洛杉矶/i, /独享IP/i);
-  const twAutoNodes = getNodes(/台湾/i, /独享IP/i);
-  const deAutoNodes = getNodes(/德国/i, /独享IP/i);
-  const gbAutoNodes = getNodes(/英国/i, /独享IP/i);
-  const otherNodes = getNodes(null, /香港|日本|新加坡|美国|台湾|德国|英国/i);
+  const hkAutoNodes = getNodes(/香港/i, /独享IP|TCVM/i);
+  const jpAutoNodes = getNodes(/日本/i, /独享IP|TCVM/i);
+  const sgAutoNodes = getNodes(/新加坡/i, /独享IP|TCVM/i);
+  const usSeattleAutoNodes = getNodes(/美国-西雅图/i, /独享IP|TCVM/i);
+  const usSanjoseAutoNodes = getNodes(/美国-圣何塞/i, /独享IP|TCVM/i);
+  const usLosangelesAutoNodes = getNodes(/美国-洛杉矶/i, /独享IP|TCVM/i);
+  const twAutoNodes = getNodes(/台湾/i, /独享IP|TCVM/i);
+  const deAutoNodes = getNodes(/德国/i, /独享IP|TCVM/i);
+  const gbAutoNodes = getNodes(/英国/i, /独享IP|TCVM/i);
+  const otherNodes = getNodes(null, /香港|日本|新加坡|美国|台湾|德国|英国|TCVM/i);
 
   // 策略组
   config['proxy-groups'] = [
@@ -152,35 +153,35 @@ function main(config) {
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/NetworkProxy/Airport.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
-      proxies: [...jpDIP, ...sgDIP, ...usDIP, "🇭🇰 香港｜⚡AUTO", "🇯🇵 日本｜⚡AUTO", "🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国-西雅图｜⚡AUTO", "🇺🇸 美国-圣何塞｜⚡AUTO", "🇺🇸 美国-洛杉矶｜⚡AUTO", "🇹🇼 台湾｜⚡AUTO", "🇩🇪 德国｜⚡AUTO", "🇬🇧 英国｜⚡AUTO", ...otherNodes]
+      proxies: ["「☁️TCVM」🇺🇸 美国-洛杉矶｜🌎美西三线", ...jpDIP, ...sgDIP, ...usDIP, "🇭🇰 香港｜⚡AUTO", "🇯🇵 日本｜⚡AUTO", "🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国-西雅图｜⚡AUTO", "🇺🇸 美国-圣何塞｜⚡AUTO", "🇺🇸 美国-洛杉矶｜⚡AUTO", "🇹🇼 台湾｜⚡AUTO", "🇩🇪 德国｜⚡AUTO", "🇬🇧 英国｜⚡AUTO", ...otherNodes]
     },
     {
       name: "电报｜🐷奶昔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Telegram.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
-      proxies: ["🇭🇰 香港｜⚡AUTO", "🇯🇵 日本｜⚡AUTO"]
+      proxies: ["「☁️TCVM」🇺🇸 美国-洛杉矶｜🌎美西三线", "🇭🇰 香港｜⚡AUTO", "🇯🇵 日本｜⚡AUTO"]
     },
     {
       name: "Emby｜🐷奶昔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Emby.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
-      proxies: ["DIRECT", "🇭🇰 香港｜⚡AUTO", "🇯🇵 日本｜⚡AUTO", "🇸🇬 新加坡｜⚡AUTO", "🇹🇼 台湾｜⚡AUTO"]
+      proxies: ["DIRECT", "「☁️TCVM」🇺🇸 美国-洛杉矶｜🌎美西三线", "🇭🇰 香港｜⚡AUTO", "🇯🇵 日本｜⚡AUTO", "🇸🇬 新加坡｜⚡AUTO", "🇹🇼 台湾｜⚡AUTO"]
     },
     {
       name: "海外影视｜🐷奶昔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/GlobalMedia.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
-      proxies: ["🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国-西雅图｜⚡AUTO", "🇺🇸 美国-圣何塞｜⚡AUTO", "🇺🇸 美国-洛杉矶｜⚡AUTO"]
+      proxies: ["「☁️TCVM」🇺🇸 美国-洛杉矶｜🌎美西三线", "🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国-西雅图｜⚡AUTO", "🇺🇸 美国-圣何塞｜⚡AUTO", "🇺🇸 美国-洛杉矶｜⚡AUTO"]
     },
     {
       name: "海外社交平台｜🐷奶昔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/SocialContact.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
-      proxies: [...sgDIP, ...usDIP, "🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国-西雅图｜⚡AUTO", "🇺🇸 美国-圣何塞｜⚡AUTO", "🇺🇸 美国-洛杉矶｜⚡AUTO"]
+      proxies: ["「☁️TCVM」🇺🇸 美国-洛杉矶｜🌎美西三线", ...sgDIP, ...usDIP, "🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国-西雅图｜⚡AUTO", "🇺🇸 美国-圣何塞｜⚡AUTO", "🇺🇸 美国-洛杉矶｜⚡AUTO"]
     },
     {
       name: "TikTok｜🐷奶昔",
@@ -194,7 +195,7 @@ function main(config) {
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/AI.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
-      proxies: [...sgDIP, ...usDIP, "🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国-西雅图｜⚡AUTO", "🇺🇸 美国-圣何塞｜⚡AUTO", "🇺🇸 美国-洛杉矶｜⚡AUTO"]
+      proxies: ["「☁️TCVM」🇺🇸 美国-洛杉矶｜🌎美西三线", ...sgDIP, ...usDIP, "🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国-西雅图｜⚡AUTO", "🇺🇸 美国-圣何塞｜⚡AUTO", "🇺🇸 美国-洛杉矶｜⚡AUTO"]
     },
     {
       name: "游戏平台｜🐷奶昔",
@@ -208,7 +209,7 @@ function main(config) {
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Google.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
-      proxies: [...sgDIP, ...usDIP, "🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国-西雅图｜⚡AUTO", "🇺🇸 美国-圣何塞｜⚡AUTO", "🇺🇸 美国-洛杉矶｜⚡AUTO"]
+      proxies: ["「☁️TCVM」🇺🇸 美国-洛杉矶｜🌎美西三线", ...sgDIP, ...usDIP, "🇸🇬 新加坡｜⚡AUTO", "🇺🇸 美国-西雅图｜⚡AUTO", "🇺🇸 美国-圣何塞｜⚡AUTO", "🇺🇸 美国-洛杉矶｜⚡AUTO"]
     },
     {
       name: "苹果｜🐷奶昔",
