@@ -1,6 +1,6 @@
 function main(config) {
   if (!config.proxies || config.proxies.length === 0) return config;
-
+  
   // 基础配置
   Object.assign(config, {
     'mixed-port': 7890,
@@ -65,51 +65,81 @@ function main(config) {
       }
     }
   });
-
+  
   // 过滤节点
-  const excludeRegex = /Premium|200\.00 G|Traffic Reset|Expire Date/i;
-  config.proxies = (config.proxies || []).filter(p => !excludeRegex.test(p.name));
+  config.proxies = config.proxies.filter(proxy => {
+    return !/Traffic|Expire/i.test(proxy.name);
+  });
 
-  // 节点重命名与旗帜矫正
+  let regionCounters = {};
+  // 地名翻译字典
+  const regionMap = {
+    "狮城": "新加坡"
+  };
+  // Emoji旗帜修正字典
+  const emojiFixMap = {
+    "台湾": "🇹🇼"
+  };
+  // 节点白名单
+  const whitelist = [
+    "TCVM"
+  ];
+  
+  // 节点重命名与重编
   config.proxies.forEach(proxy => {
-    let name = proxy.name;
-    if ((name.includes("台湾") || /Taiwan/i.test(name)) && name.includes("🇨🇳")) {
-        name = name.split("🇨🇳").join("🇹🇼");
+    if (whitelist.some(keyword => proxy.name.includes(keyword))) return;
+    let match = proxy.name.match(/^(.*?)\s*(高级|标准|特殊|购物)\s+专线\s+([\u4e00-\u9fa5]+)(?:\s+(\d+))?/);
+    if (match && match[2] === "高级") {
+      let emoji = match[1].trim();
+      let region = match[3].trim();
+      if (regionMap[region]) region = regionMap[region];
+      if (emojiFixMap[region]) emoji = emojiFixMap[region]; 
+      let key = emoji + " " + region; 
+      let num = match[4] ? parseInt(match[4], 10) : 0; 
+      if (!regionCounters[key] || num > regionCounters[key]) {
+        regionCounters[key] = num;
+      }
     }
-    name = name.replace(/Japan 01 \(DIP Japan-Tokyo\)/i, "日本-东京（🏠独享IP）");
-    name = name.replace(/Singapore 01 \(DIP Singapore\)/i, "新加坡（🏠独享IP）");
-    name = name.replace(/USA Los Angeles 01 \(DIP USA-Los Angeles\)/i, "美国-洛杉矶（🏠独享IP）");
-    name = name.replace(/Hong Kong/i, "香港");
-    name = name.replace(/Taiwan/i, "台湾");
-    name = name.replace(/Macao/i, "澳门");
-    name = name.replace(/Japan/i, "日本");
-    name = name.replace(/Singapore/i, "新加坡");
-    name = name.replace(/USA Seattle/i, "美国-西雅图");
-    name = name.replace(/USA San Jose/i, "美国-圣何塞");
-    name = name.replace(/USA Los Angeles/i, "美国-洛杉矶");
-    name = name.replace(/Netherlands/i, "荷兰");
-    name = name.replace(/Russia St\. Petersburg/i, "俄罗斯-圣彼得堡");
-    name = name.replace(/Russia Moscow/i, "俄罗斯-莫斯科");
-    name = name.replace(/Germany/i, "德国");
-    name = name.replace(/Switzerland/i, "瑞士");
-    name = name.replace(/France/i, "法国");
-    name = name.replace(/United Kingdom/i, "英国");
-    name = name.replace(/Sweden/i, "瑞典");
-    name = name.replace(/Bulgaria/i, "保加利亚");
-    name = name.replace(/Austria/i, "奥地利");
-    name = name.replace(/Ireland/i, "爱尔兰");
-    name = name.replace(/Turkey/i, "土耳其");
-    name = name.replace(/Hungary/i, "匈牙利");
-    name = name.replace(/Korea/i, "韩国");
-    name = name.replace(/Canada/i, "加拿大");
-    name = name.replace(/Australia Sydney/i, "澳大利亚-悉尼");
-    name = name.replace(/United Arab Emirates/i, "阿拉伯联合酋长国");
-    name = name.replace(/Indonesia/i, "印度尼西亚");
-    name = name.replace(/India/i, "印度");
-    name = name.replace(/Brazil/i, "巴西");
-    name = name.replace(/Argentina/i, "阿根廷");
-    name = name.replace(/Chile/i, "智利");
-    proxy.name = name;
+  });
+  config.proxies.forEach(proxy => {
+    if (whitelist.some(keyword => proxy.name.includes(keyword))) return;
+    let dailyMatch = proxy.name.match(/^(.*?)\s*日用\s+专线\s+([\u4e00-\u9fa5]+)\s+\[([0-9.]+)\]/);
+    if (dailyMatch) {
+      let emoji = dailyMatch[1].trim();     
+      let region = dailyMatch[2].trim();    
+      let multiplier = dailyMatch[3];       
+      if (regionMap[region]) region = regionMap[region];
+      if (emojiFixMap[region]) emoji = emojiFixMap[region];
+      proxy.name = `${emoji} ${region}｜📶${multiplier}x倍率`;
+      return;
+    }
+    let match = proxy.name.match(/^(.*?)\s*(高级|标准|特殊|购物)\s+专线\s+([\u4e00-\u9fa5]+)(?:\s+(\d+))?/);
+    if (match) {
+      let emoji = match[1].trim();     
+      let type = match[2];             
+      let region = match[3].trim();         
+      if (regionMap[region]) region = regionMap[region];
+      if (emojiFixMap[region]) emoji = emojiFixMap[region];
+      let hasNum = match[4] !== undefined; 
+      let key = emoji + " " + region;  
+      if (hasNum) {
+        let newNum;
+        if (type === "高级") {
+          newNum = parseInt(match[4], 10);
+        } else {
+          if (regionCounters[key] === undefined) {
+            regionCounters[key] = 0;
+          }
+          regionCounters[key]++;
+          newNum = regionCounters[key];
+        }
+        let formattedNum = newNum.toString().padStart(2, '0');
+        proxy.name = `${emoji} ${region} ${formattedNum}`;
+      } 
+      else {
+        proxy.name = `${emoji} ${region}`;
+      }
+    }
   });
   const updatedProxyNames = config.proxies.map(p => p.name);
 
@@ -121,125 +151,140 @@ function main(config) {
       return match && notMatch;
     });
   };
-  const hkAutoNodes = getNodes(/香港/i, /独享IP|TCVM/i);
-  const jpAutoNodes = getNodes(/日本/i, /独享IP|TCVM/i);
-  const sgAutoNodes = getNodes(/新加坡/i, /独享IP|TCVM/i);
-  const usAutoNodes = getNodes(/美国/i, /独享IP|TCVM/i);
-  const twAutoNodes = getNodes(/台湾/i, /独享IP|TCVM/i);
-  const deAutoNodes = getNodes(/德国/i, /独享IP|TCVM/i);
-  const gbAutoNodes = getNodes(/英国/i, /独享IP|TCVM/i);
-  const otherNodes = getNodes(null, /香港|日本|新加坡|美国|台湾|德国|英国|TCVM/i);
+  const hkAutoNodes = getNodes(/香港/i, /0.2x倍率|TCVM/i);
+  const jpAutoNodes = getNodes(/日本/i, /0.2x倍率|TCVM/i);
+  const sgAutoNodes = getNodes(/新加坡/i, /0.2x倍率|TCVM/i);
+  const usAutoNodes = getNodes(/美国/i, /0.2x倍率|TCVM/i);
+  const otherNodes = getNodes(null, /香港|日本|新加坡|美国|TCVM/i);
 
   // 策略组
   config['proxy-groups'] = [
     {
-      name: "节点选择｜🐷奶昔",
+      name: "节点选择｜🐰优兔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/NetworkProxy/Airport.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: [
-        "🇯🇵 日本-东京（🏠独享IP）",
-        "🇸🇬 新加坡（🏠独享IP）",
-        "🇺🇸 美国-洛杉矶（🏠独享IP）",
-        "🇲🇴 澳门｜MOLite（☁️TCVM）",
-        "🇭🇰 香港｜HKLite（☁️TCVM）",
-        "🇯🇵 日本-东京｜JPSoftbank（☁️TCVM）",
-        "🇸🇬 新加坡｜SGBGPLite（☁️TCVM）",
-        "🇺🇸 美国-洛杉矶｜LAXHyper（☁️TCVM）",
+        "🇲🇴 澳门（☁️TCVM）｜📶0.2x倍率",
+        "🇭🇰 香港（☁️TCVM）｜📶0.2x倍率",
+        "🇯🇵 日本-东京（☁️TCVM）｜📶0.2x倍率",
+        "🇸🇬 新加坡（☁️TCVM）｜📶0.2x倍率",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜📶0.2x倍率",
+        "🇲🇴 澳门（☁️TCVM）｜⚡AUTO",
+        "🇭🇰 香港（☁️TCVM）｜⚡AUTO",
+        "🇯🇵 日本-东京（☁️TCVM）｜⚡AUTO",
+        "🇸🇬 新加坡（☁️TCVM）｜⚡AUTO",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜⚡AUTO",
+        "🇭🇰 香港｜📶0.2x倍率",
+        "🇯🇵 日本｜📶0.2x倍率",
+        "🇸🇬 新加坡｜📶0.2x倍率",
+        "🇺🇸 美国｜📶0.2x倍率",
         "🇭🇰 香港｜⚡AUTO",
         "🇯🇵 日本｜⚡AUTO",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO",
         "🇹🇼 台湾｜⚡AUTO",
-        "🇩🇪 德国｜⚡AUTO",
-        "🇬🇧 英国｜⚡AUTO",
         ...otherNodes
     ]},
     {
-      name: "电报｜🐷奶昔",
+      name: "电报｜🐰优兔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Telegram.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: [
+        "🇭🇰 香港｜📶0.2x倍率",
+        "🇯🇵 日本｜📶0.2x倍率",
         "🇭🇰 香港｜⚡AUTO",
         "🇯🇵 日本｜⚡AUTO"
     ]},
     {
-      name: "海外影视｜🐷奶昔",
+      name: "Emby｜🐰优兔",
+      icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Emby.png",
+      url: "http://cp.cloudflare.com/generate_204",
+      type: "select",
+      proxies: [
+        "DIRECT",
+        "🇭🇰 香港｜📶0.2x倍率",
+        "🇯🇵 日本｜📶0.2x倍率"
+    ]},
+    {
+      name: "海外影视｜🐰优兔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/GlobalMedia.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: [
-        "🇸🇬 新加坡（🏠独享IP）",
-        "🇺🇸 美国-洛杉矶（🏠独享IP）",
-        "🇸🇬 新加坡｜SGBGPLite（☁️TCVM）",
-        "🇺🇸 美国-洛杉矶｜LAXHyper（☁️TCVM）",
+        "🇸🇬 新加坡（☁️TCVM）｜📶0.2x倍率",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜📶0.2x倍率",
+        "🇸🇬 新加坡（☁️TCVM）｜⚡AUTO",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜⚡AUTO",
+        "🇸🇬 新加坡｜📶0.2x倍率",
+        "🇺🇸 美国｜📶0.2x倍率",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
     ]},
     {
-      name: "海外社交平台｜🐷奶昔",
+      name: "海外社交平台｜🐰优兔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/SocialContact.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: [
-        "🇸🇬 新加坡（🏠独享IP）",
-        "🇺🇸 美国-洛杉矶（🏠独享IP）",
-        "🇸🇬 新加坡｜SGBGPLite（☁️TCVM）",
-        "🇺🇸 美国-洛杉矶｜LAXHyper（☁️TCVM）",
+        "🇸🇬 新加坡（☁️TCVM）｜📶0.2x倍率",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜📶0.2x倍率",
+        "🇸🇬 新加坡（☁️TCVM）｜⚡AUTO",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜⚡AUTO",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
     ]},
     {
-      name: "TikTok｜🐷奶昔",
+      name: "TikTok｜🐰优兔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/TikTok.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: [
-        "🇯🇵 日本-东京（🏠独享IP）",
-        "🇸🇬 新加坡（🏠独享IP）",
-        "🇯🇵 日本-东京｜JPSoftbank（☁️TCVM）",
-        "🇸🇬 新加坡｜SGBGPLite（☁️TCVM）",
+        "🇯🇵 日本-东京（☁️TCVM）｜📶0.2x倍率",
+        "🇸🇬 新加坡（☁️TCVM）｜📶0.2x倍率",
+        "🇯🇵 日本-东京（☁️TCVM）｜⚡AUTO",
+        "🇸🇬 新加坡（☁️TCVM）｜⚡AUTO",
         "🇯🇵 日本｜⚡AUTO",
         "🇸🇬 新加坡｜⚡AUTO"
     ]},
     {
-      name: "AI｜🐷奶昔",
+      name: "AI｜🐰优兔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/AI.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: [
-        "🇸🇬 新加坡（🏠独享IP）",
-        "🇺🇸 美国-洛杉矶（🏠独享IP）",
-        "🇸🇬 新加坡｜SGBGPLite（☁️TCVM）",
-        "🇺🇸 美国-洛杉矶｜LAXHyper（☁️TCVM）",
+        "🇸🇬 新加坡（☁️TCVM）｜📶0.2x倍率",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜📶0.2x倍率",
+        "🇸🇬 新加坡（☁️TCVM）｜⚡AUTO",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜⚡AUTO",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
     ]},
     {
-      name: "游戏平台｜🐷奶昔",
+      name: "游戏平台｜🐰优兔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Games.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: [
         "DIRECT",
-        "🇭🇰 香港｜⚡AUTO"
+        "🇭🇰 香港｜📶0.2x倍率"
     ]},
     {
-      name: "谷歌｜🐷奶昔",
+      name: "谷歌｜🐰优兔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Google.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: [
-        "🇸🇬 新加坡（🏠独享IP）",
-        "🇺🇸 美国-洛杉矶（🏠独享IP）",
-        "🇸🇬 新加坡｜SGBGPLite（☁️TCVM）",
-        "🇺🇸 美国-洛杉矶｜LAXHyper（☁️TCVM）",
+        "🇸🇬 新加坡（☁️TCVM）｜📶0.2x倍率",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜📶0.2x倍率",
+        "🇸🇬 新加坡（☁️TCVM）｜⚡AUTO",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜⚡AUTO",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
     ]},
     {
-      name: "苹果｜🐷奶昔",
+      name: "苹果｜🐰优兔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Apple.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
@@ -249,7 +294,7 @@ function main(config) {
         "🇺🇸 美国｜⚡AUTO"
     ]},
     {
-      name: "微软｜🐷奶昔",
+      name: "微软｜🐰优兔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Microsoft.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
@@ -259,88 +304,58 @@ function main(config) {
         "🇺🇸 美国｜⚡AUTO"
     ]},
     {
-      name: "币圈｜🐷奶昔",
+      name: "币圈｜🐰优兔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Crypto.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
-      proxies: ["🇸🇬 新加坡（🏠独享IP）",
-        "🇺🇸 美国-洛杉矶（🏠独享IP）",
-        "🇸🇬 新加坡｜SGBGPLite（☁️TCVM）",
-        "🇺🇸 美国-洛杉矶｜LAXHyper（☁️TCVM）",
+      proxies: [
+        "🇸🇬 新加坡（☁️TCVM）｜📶0.2x倍率",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜📶0.2x倍率",
+        "🇸🇬 新加坡（☁️TCVM）｜⚡AUTO",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜⚡AUTO",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
     ]},
-    {
-      name: "🇭🇰 香港｜⚡AUTO",
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png",
-      url: "http://cp.cloudflare.com/generate_204",
-      type: "url-test",
-      interval: 300,
-      timeout: 3000,
-      tolerance: 15,
-      proxies: hkAutoNodes
-    },
-    {
-      name: "🇯🇵 日本｜⚡AUTO",
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png",
-      url: "http://cp.cloudflare.com/generate_204",
-      type: "url-test",
-      interval: 300,
-      timeout: 3000,
-      tolerance: 15,
-      proxies: jpAutoNodes
-    },
-    {
-      name: "🇸🇬 新加坡｜⚡AUTO",
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png",
-      url: "http://cp.cloudflare.com/generate_204",
-      type: "url-test",
-      interval: 300,
-      timeout: 3000,
-      tolerance: 15,
-      proxies: sgAutoNodes
-    },
-    {
-      name: "🇺🇸 美国｜⚡AUTO",
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png",
-      url: "http://cp.cloudflare.com/generate_204",
-      type: "url-test",
-      interval: 300,
-      timeout: 3000,
-      tolerance: 30,
-      proxies: usAutoNodes
-    },
-    {
-      name: "🇹🇼 台湾｜⚡AUTO",
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png",
-      url: "http://cp.cloudflare.com/generate_204",
-      type: "url-test",
-      interval: 300,
-      timeout: 3000,
-      tolerance: 15,
-      proxies: twAutoNodes
-    },
-    {
-      name: "🇩🇪 德国｜⚡AUTO",
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png",
-      url: "http://cp.cloudflare.com/generate_204",
-      type: "url-test",
-      interval: 300,
-      timeout: 3000,
-      tolerance: 30,
-      proxies: deAutoNodes
-    },
-    {
-      name: "🇬🇧 英国｜⚡AUTO",
-      icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png",
-      url: "http://cp.cloudflare.com/generate_204",
-      type: "url-test",
-      interval: 300,
-      timeout: 3000,
-      tolerance: 30,
-      proxies: gbAutoNodes
-    }
-  ];
+    { 
+	    name: "🇭🇰 香港｜⚡AUTO",
+	    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png",
+	    url: "http://cp.cloudflare.com/generate_204",
+	    type: "url-test",
+	    interval: 300,
+	    timeout: 3000,
+	    tolerance: 15,
+	    proxies: hkAutoNodes
+	  },
+	  { 
+	    name: "🇯🇵 日本｜⚡AUTO",
+	    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png",
+	    url: "http://cp.cloudflare.com/generate_204",
+	    type: "url-test",
+	    interval: 300,
+	    timeout: 3000,
+	    tolerance: 15,
+	    proxies: jpAutoNodes
+	  },
+	  { 
+	    name: "🇸🇬 新加坡｜⚡AUTO",
+	    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png",
+	    url: "http://cp.cloudflare.com/generate_204",
+	    type: "url-test",
+	    interval: 300,
+	    timeout: 3000,
+	    tolerance: 15,
+	    proxies: sgAutoNodes
+	  },
+	  { 
+	    name: "🇺🇸 美国｜⚡AUTO",
+	    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png",
+	    url: "http://cp.cloudflare.com/generate_204",
+	    type: "url-test",
+	    interval: 300,
+	    timeout: 3000,
+	    tolerance: 30,
+	    proxies: usAutoNodes
+	  }];
 
   // 外部规则集
   config['rule-providers'] = {
@@ -362,6 +377,7 @@ function main(config) {
     "steam": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Steam.yaml", path: "./rule_set/Steam.yaml", interval: 86400 },
     "epic": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Epic.yaml", path: "./rule_set/Epic.yaml", interval: 86400 },
     "xbox": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Xbox.yaml", path: "./rule_set/Xbox.yaml", interval: 86400 },
+    "emby": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/Rule/Emby.yaml", path: "./rule_set/Emby.yaml", interval: 86400 },
     "netflix": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Netflix.yaml", path: "./rule_set/Netflix.yaml", interval: 86400 },
     "disneyplus": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/DisneyPlus.yaml", path: "./rule_set/DisneyPlus.yaml", interval: 86400 },
     "hbo": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/HBO.yaml", path: "./rule_set/HBO.yaml", interval: 86400 },
@@ -372,32 +388,33 @@ function main(config) {
   // 路由规则
   config['rules'] = [
     "RULE-SET,localhost,DIRECT",
-    "DOMAIN,4c553a36cdfb.qtt-163cdn.com,DIRECT",
-    "RULE-SET,telegram,电报｜🐷奶昔",
-    "RULE-SET,github,海外社交平台｜🐷奶昔",
-    "RULE-SET,whatsapp,海外社交平台｜🐷奶昔",
-    "RULE-SET,discord,海外社交平台｜🐷奶昔",
-    "RULE-SET,twitter,海外社交平台｜🐷奶昔",
-    "RULE-SET,facebook,海外社交平台｜🐷奶昔",
-    "RULE-SET,instagram,海外社交平台｜🐷奶昔",
-    "RULE-SET,reddit,海外社交平台｜🐷奶昔",
-    "RULE-SET,twitch,海外社交平台｜🐷奶昔",
-    "RULE-SET,ai,AI｜🐷奶昔",
-    "RULE-SET,tiktok,TikTok｜🐷奶昔",
-    "RULE-SET,google,谷歌｜🐷奶昔",
-    "RULE-SET,apple,苹果｜🐷奶昔",
-    "RULE-SET,microsoft,微软｜🐷奶昔",
-    "RULE-SET,steam,游戏平台｜🐷奶昔",
-    "RULE-SET,epic,游戏平台｜🐷奶昔",
-    "RULE-SET,xbox,游戏平台｜🐷奶昔",
-    "RULE-SET,netflix,海外影视｜🐷奶昔",
-    "RULE-SET,disneyplus,海外影视｜🐷奶昔",
-    "RULE-SET,hbo,海外影视｜🐷奶昔",
-    "RULE-SET,crypto,币圈｜🐷奶昔",
+    "DOMAIN,cdn.synergypeak.org,DIRECT",
+    "RULE-SET,telegram,电报｜🐰优兔",
+    "RULE-SET,github,海外社交平台｜🐰优兔",
+    "RULE-SET,whatsapp,海外社交平台｜🐰优兔",
+    "RULE-SET,discord,海外社交平台｜🐰优兔",
+    "RULE-SET,twitter,海外社交平台｜🐰优兔",
+    "RULE-SET,facebook,海外社交平台｜🐰优兔",
+    "RULE-SET,instagram,海外社交平台｜🐰优兔",
+    "RULE-SET,reddit,海外社交平台｜🐰优兔",
+    "RULE-SET,twitch,海外社交平台｜🐰优兔",
+    "RULE-SET,ai,AI｜🐰优兔",
+    "RULE-SET,tiktok,TikTok｜🐰优兔",
+    "RULE-SET,google,谷歌｜🐰优兔",
+    "RULE-SET,apple,苹果｜🐰优兔",
+    "RULE-SET,microsoft,微软｜🐰优兔",
+    "RULE-SET,steam,游戏平台｜🐰优兔",
+    "RULE-SET,epic,游戏平台｜🐰优兔",
+    "RULE-SET,xbox,游戏平台｜🐰优兔",
+    "RULE-SET,emby,Emby｜🐰优兔",
+    "RULE-SET,netflix,海外影视｜🐰优兔",
+    "RULE-SET,disneyplus,海外影视｜🐰优兔",
+    "RULE-SET,hbo,海外影视｜🐰优兔",
+    "RULE-SET,crypto,币圈｜🐰优兔",
     "RULE-SET,china_domain,DIRECT",
-    "GEOSITE,cn,DIRECT",
+    "GEOSITE,CN,DIRECT",
     "GEOIP,CN,DIRECT",
-    "MATCH,节点选择｜🐷奶昔"
+    "MATCH,节点选择｜🐰优兔"
   ];
 
   return config;
