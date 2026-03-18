@@ -184,7 +184,6 @@ function main(config) {
         "🇯🇵 日本｜⚡AUTO",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO",
-        "🇹🇼 台湾｜⚡AUTO",
         ...otherNodes
     ]},
     {
