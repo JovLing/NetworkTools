@@ -35,7 +35,8 @@ function main(config) {
 	  'direct-nameserver': [
 		'https://dns.alidns.com/dns-query',
 		'https://doh.pub/dns-query'
-	  'direct-nameserver-follow-policy': false
+	  ],
+	  'direct-nameserver-follow-policy': false,
       'nameserver': [
         'https://223.5.5.5/dns-query',
         'https://119.29.29.29/dns-query'
