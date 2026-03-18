@@ -1,5 +1,5 @@
 mixed-port: 7890
-external-controller: 0.0.0.0:9090
+external-controller: '0.0.0.0:9090'
 mode: Rule
 geodata-mode: true
 geo-auto-update: true
@@ -12,42 +12,42 @@ geox-url:
 dns:
   enable: true
   ipv6: false
-  listen: 0.0.0.0:1053
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
+  listen: '0.0.0.0:1053'
+  enhanced-mode: 'fake-ip'
+  fake-ip-range: '198.18.0.1/16'
   fake-ip-filter:
-    - "*.lan"
-    - "*.localdomain"
-    - "*.localhost"
-    - "*.local"
-    - "*.msftncsi.com"
-    - "*.msftconnecttest.com"
-    - time.*.com
-    - time.*.gov
-    - time.*.edu.cn
-    - time.*.apple.com
-    - ntp.*.com
-    - stun.*.*
+    - '*.lan'
+    - '*.localdomain'
+    - '*.localhost'
+    - '*.local'
+    - '*.msftncsi.com'
+    - '*.msftconnecttest.com'
+    - 'time.*.com'
+    - 'time.*.gov'
+    - 'time.*.edu.cn'
+    - 'time.*.apple.com'
+    - 'ntp.*.com'
+    - 'stun.*.*'
   default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-    - 8.8.8.8
-    - 1.1.1.1
+    - '223.5.5.5'
+    - '119.29.29.29'
+    - '8.8.8.8'
+    - '1.1.1.1'
   direct-nameserver:
     - 'https://dns.alidns.com/dns-query'
     - 'https://doh.pub/dns-query'
   direct-nameserver-follow-policy: false
   nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
+    - '223.5.5.5'
+    - '119.29.29.29'
   fallback:
-    - 8.8.8.8
-    - 1.1.1.1
+    - '8.8.8.8'
+    - '1.1.1.1'
   fallback-filter:
     geoip: true
-    geoip-code: CN
+    geoip-code: 'CN'
     ipcidr:
-      - 240.0.0.0/4
+      - '240.0.0.0/4'
     domain:
       - '+.telegram.org'
       - '+.google.com'
