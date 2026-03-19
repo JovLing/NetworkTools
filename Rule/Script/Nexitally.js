@@ -122,14 +122,14 @@ function main(config) {
       return match && notMatch;
     });
   };
-  const hkAutoNodes = getNodes(/香港/i, /独享IP|TCVM/i);
-  const jpAutoNodes = getNodes(/日本/i, /独享IP|TCVM/i);
-  const sgAutoNodes = getNodes(/新加坡/i, /独享IP|TCVM/i);
-  const usAutoNodes = getNodes(/美国/i, /独享IP|TCVM/i);
-  const twAutoNodes = getNodes(/台湾/i, /独享IP|TCVM/i);
-  const deAutoNodes = getNodes(/德国/i, /独享IP|TCVM/i);
-  const gbAutoNodes = getNodes(/英国/i, /独享IP|TCVM/i);
-  const otherNodes = getNodes(null, /香港|日本|新加坡|美国|台湾|德国|英国|TCVM/i);
+  const hkAutoNodes = getNodes(/香港/i, /独享IP/i);
+  const jpAutoNodes = getNodes(/日本/i, /独享IP/i);
+  const sgAutoNodes = getNodes(/新加坡/i, /独享IP/i);
+  const usAutoNodes = getNodes(/美国/i, /独享IP/i);
+  const twAutoNodes = getNodes(/台湾/i, /独享IP/i);
+  const deAutoNodes = getNodes(/德国/i, /独享IP/i);
+  const gbAutoNodes = getNodes(/英国/i, /独享IP/i);
+  const otherNodes = getNodes(null, /香港|日本|新加坡|美国|台湾|德国|英国|独享IP/i);
 
   // 策略组
   config['proxy-groups'] = [
@@ -139,14 +139,10 @@ function main(config) {
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: [
+	    "🇲🇴 澳门（🏠独享IP）",
         "🇯🇵 日本-东京（🏠独享IP）",
         "🇸🇬 新加坡（🏠独享IP）",
         "🇺🇸 美国-洛杉矶（🏠独享IP）",
-        "🇲🇴 澳门｜MOLite（☁️TCVM）",
-        "🇭🇰 香港｜HKLite（☁️TCVM）",
-        "🇯🇵 日本-东京｜JPSoftbank（☁️TCVM）",
-        "🇸🇬 新加坡｜SGBGPLite（☁️TCVM）",
-        "🇺🇸 美国-洛杉矶｜LAXHyper（☁️TCVM）",
         "🇭🇰 香港｜⚡AUTO",
         "🇯🇵 日本｜⚡AUTO",
         "🇸🇬 新加坡｜⚡AUTO",
@@ -173,8 +169,6 @@ function main(config) {
       proxies: [
         "🇸🇬 新加坡（🏠独享IP）",
         "🇺🇸 美国-洛杉矶（🏠独享IP）",
-        "🇸🇬 新加坡｜SGBGPLite（☁️TCVM）",
-        "🇺🇸 美国-洛杉矶｜LAXHyper（☁️TCVM）",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
     ]},
@@ -186,8 +180,6 @@ function main(config) {
       proxies: [
         "🇸🇬 新加坡（🏠独享IP）",
         "🇺🇸 美国-洛杉矶（🏠独享IP）",
-        "🇸🇬 新加坡｜SGBGPLite（☁️TCVM）",
-        "🇺🇸 美国-洛杉矶｜LAXHyper（☁️TCVM）",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
     ]},
@@ -199,8 +191,6 @@ function main(config) {
       proxies: [
         "🇯🇵 日本-东京（🏠独享IP）",
         "🇸🇬 新加坡（🏠独享IP）",
-        "🇯🇵 日本-东京｜JPSoftbank（☁️TCVM）",
-        "🇸🇬 新加坡｜SGBGPLite（☁️TCVM）",
         "🇯🇵 日本｜⚡AUTO",
         "🇸🇬 新加坡｜⚡AUTO"
     ]},
@@ -212,8 +202,6 @@ function main(config) {
       proxies: [
         "🇸🇬 新加坡（🏠独享IP）",
         "🇺🇸 美国-洛杉矶（🏠独享IP）",
-        "🇸🇬 新加坡｜SGBGPLite（☁️TCVM）",
-        "🇺🇸 美国-洛杉矶｜LAXHyper（☁️TCVM）",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
     ]},
@@ -234,8 +222,6 @@ function main(config) {
       proxies: [
         "🇸🇬 新加坡（🏠独享IP）",
         "🇺🇸 美国-洛杉矶（🏠独享IP）",
-        "🇸🇬 新加坡｜SGBGPLite（☁️TCVM）",
-        "🇺🇸 美国-洛杉矶｜LAXHyper（☁️TCVM）",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
     ]},
@@ -264,10 +250,9 @@ function main(config) {
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Crypto.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
-      proxies: ["🇸🇬 新加坡（🏠独享IP）",
+      proxies: [
+	    "🇸🇬 新加坡（🏠独享IP）",
         "🇺🇸 美国-洛杉矶（🏠独享IP）",
-        "🇸🇬 新加坡｜SGBGPLite（☁️TCVM）",
-        "🇺🇸 美国-洛杉矶｜LAXHyper（☁️TCVM）",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
     ]},
@@ -278,7 +263,7 @@ function main(config) {
       type: "url-test",
       interval: 300,
       timeout: 3000,
-      tolerance: 15,
+      tolerance: 30,
       proxies: hkAutoNodes
     },
     {
@@ -288,7 +273,7 @@ function main(config) {
       type: "url-test",
       interval: 300,
       timeout: 3000,
-      tolerance: 15,
+      tolerance: 30,
       proxies: jpAutoNodes
     },
     {
@@ -298,7 +283,7 @@ function main(config) {
       type: "url-test",
       interval: 300,
       timeout: 3000,
-      tolerance: 15,
+      tolerance: 30,
       proxies: sgAutoNodes
     },
     {
@@ -308,7 +293,7 @@ function main(config) {
       type: "url-test",
       interval: 300,
       timeout: 3000,
-      tolerance: 30,
+      tolerance: 50,
       proxies: usAutoNodes
     },
     {
@@ -318,7 +303,7 @@ function main(config) {
       type: "url-test",
       interval: 300,
       timeout: 3000,
-      tolerance: 15,
+      tolerance: 30,
       proxies: twAutoNodes
     },
     {
@@ -328,7 +313,7 @@ function main(config) {
       type: "url-test",
       interval: 300,
       timeout: 3000,
-      tolerance: 30,
+      tolerance: 50,
       proxies: deAutoNodes
     },
     {
@@ -338,7 +323,7 @@ function main(config) {
       type: "url-test",
       interval: 300,
       timeout: 3000,
-      tolerance: 30,
+      tolerance: 50,
       proxies: gbAutoNodes
     }
   ];

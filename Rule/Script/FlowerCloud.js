@@ -123,12 +123,10 @@ function main(config) {
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: [
-        "🇲🇴 澳门（☁️TCVM）｜📶0.2x倍率",
         "🇭🇰 香港（☁️TCVM）｜📶0.2x倍率",
         "🇯🇵 日本-东京（☁️TCVM）｜📶0.2x倍率",
         "🇸🇬 新加坡（☁️TCVM）｜📶0.2x倍率",
         "🇺🇸 美国-洛杉矶（☁️TCVM）｜📶0.2x倍率",
-        "🇲🇴 澳门（☁️TCVM）｜⚡AUTO",
         "🇭🇰 香港（☁️TCVM）｜⚡AUTO",
         "🇯🇵 日本-东京（☁️TCVM）｜⚡AUTO",
         "🇸🇬 新加坡（☁️TCVM）｜⚡AUTO",
