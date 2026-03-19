@@ -201,9 +201,14 @@ function main(config) {
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: [
-        "DIRECT",
         "🇭🇰 香港｜📶0.2x倍率",
-        "🇯🇵 日本｜📶0.2x倍率"
+        "🇯🇵 日本｜📶0.2x倍率",
+        "🇸🇬 新加坡｜📶0.2x倍率",
+        "🇺🇸 美国｜📶0.2x倍率",
+        "🇭🇰 香港｜⚡AUTO",
+        "🇯🇵 日本｜⚡AUTO",
+        "🇸🇬 新加坡｜⚡AUTO",
+        "🇺🇸 美国｜⚡AUTO"
     ]},
     {
       name: "海外影视｜🐰优兔",

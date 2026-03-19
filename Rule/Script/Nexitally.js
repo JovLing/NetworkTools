@@ -139,7 +139,7 @@ function main(config) {
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: [
-	    "🇲🇴 澳门（🏠独享IP）",
+        "🇲🇴 澳门（🏠独享IP）",
         "🇯🇵 日本-东京（🏠独享IP）",
         "🇸🇬 新加坡（🏠独享IP）",
         "🇺🇸 美国-洛杉矶（🏠独享IP）",
@@ -160,6 +160,17 @@ function main(config) {
       proxies: [
         "🇭🇰 香港｜⚡AUTO",
         "🇯🇵 日本｜⚡AUTO"
+    ]},
+    {
+      name: "Emby｜🐷奶昔",
+      icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Emby.png",
+      url: "http://cp.cloudflare.com/generate_204",
+      type: "select",
+      proxies: [
+        "🇭🇰 香港｜⚡AUTO",
+        "🇯🇵 日本｜⚡AUTO",
+        "🇸🇬 新加坡｜⚡AUTO",
+        "🇺🇸 美国｜⚡AUTO"
     ]},
     {
       name: "海外影视｜🐷奶昔",
@@ -251,7 +262,7 @@ function main(config) {
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: [
-	    "🇸🇬 新加坡（🏠独享IP）",
+        "🇸🇬 新加坡（🏠独享IP）",
         "🇺🇸 美国-洛杉矶（🏠独享IP）",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
@@ -348,6 +359,7 @@ function main(config) {
     "steam": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Steam.yaml", path: "./rule_set/Steam.yaml", interval: 86400 },
     "epic": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Epic.yaml", path: "./rule_set/Epic.yaml", interval: 86400 },
     "xbox": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Xbox.yaml", path: "./rule_set/Xbox.yaml", interval: 86400 },
+    "emby": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/Rule/Emby.yaml", path: "./rule_set/Emby.yaml", interval: 86400 },
     "netflix": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Netflix.yaml", path: "./rule_set/Netflix.yaml", interval: 86400 },
     "disneyplus": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/DisneyPlus.yaml", path: "./rule_set/DisneyPlus.yaml", interval: 86400 },
     "hbo": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/HBO.yaml", path: "./rule_set/HBO.yaml", interval: 86400 },
@@ -376,6 +388,7 @@ function main(config) {
     "RULE-SET,steam,游戏平台｜🐷奶昔",
     "RULE-SET,epic,游戏平台｜🐷奶昔",
     "RULE-SET,xbox,游戏平台｜🐷奶昔",
+    "RULE-SET,emby,Emby｜🐷奶昔",
     "RULE-SET,netflix,海外影视｜🐷奶昔",
     "RULE-SET,disneyplus,海外影视｜🐷奶昔",
     "RULE-SET,hbo,海外影视｜🐷奶昔",
