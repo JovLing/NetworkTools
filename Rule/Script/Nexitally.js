@@ -263,7 +263,7 @@ function main(config) {
       type: "url-test",
       interval: 300,
       timeout: 3000,
-      tolerance: 30,
+      tolerance: 15,
       proxies: hkAutoNodes
     },
     {
@@ -273,7 +273,7 @@ function main(config) {
       type: "url-test",
       interval: 300,
       timeout: 3000,
-      tolerance: 30,
+      tolerance: 15,
       proxies: jpAutoNodes
     },
     {
@@ -283,7 +283,7 @@ function main(config) {
       type: "url-test",
       interval: 300,
       timeout: 3000,
-      tolerance: 30,
+      tolerance: 15,
       proxies: sgAutoNodes
     },
     {
@@ -293,7 +293,7 @@ function main(config) {
       type: "url-test",
       interval: 300,
       timeout: 3000,
-      tolerance: 50,
+      tolerance: 30,
       proxies: usAutoNodes
     },
     {
@@ -303,7 +303,7 @@ function main(config) {
       type: "url-test",
       interval: 300,
       timeout: 3000,
-      tolerance: 30,
+      tolerance: 15,
       proxies: twAutoNodes
     },
     {
@@ -313,7 +313,7 @@ function main(config) {
       type: "url-test",
       interval: 300,
       timeout: 3000,
-      tolerance: 50,
+      tolerance: 30,
       proxies: deAutoNodes
     },
     {
@@ -323,7 +323,7 @@ function main(config) {
       type: "url-test",
       interval: 300,
       timeout: 3000,
-      tolerance: 50,
+      tolerance: 30,
       proxies: gbAutoNodes
     }
   ];
