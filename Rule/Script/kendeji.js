@@ -155,7 +155,8 @@ function main(config) {
         "🇭🇰 香港｜⚡AUTO",
         "🇯🇵 日本｜⚡AUTO",
         "🇸🇬 新加坡｜⚡AUTO",
-        "🇺🇸 美国｜⚡AUTO"
+        "🇺🇸 美国｜⚡AUTO",
+		"DIRECT"
     ]},
     {
       name: "海外影视｜🐔肯の机",
