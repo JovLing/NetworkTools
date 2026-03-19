@@ -1,4 +1,3 @@
 payload:
   # Emby网址
-  - DOMAIN,m.mobaiemby.site
-  - DOMAIN,myg2.mobaiemby.site
+  - DOMAIN-SUFFIX,mobaiemby.site
