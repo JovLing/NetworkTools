@@ -38,23 +38,23 @@ function main(config) {
 		'stun.*.*'
       ],
       'default-nameserver': [
-		'223.5.5.5',
-		'119.29.29.29',
-		'8.8.8.8',
-        '1.1.1.1'
+		'223.5.5.5',  // 阿里 DNS
+		'119.29.29.29',  // 腾讯 DNS
+		'8.8.8.8',  // 谷歌 DNS
+        '1.1.1.1'  // CloudFlare DNS
       ],
 	  'direct-nameserver': [
-		'https://dns.alidns.com/dns-query',
-		'https://doh.pub/dns-query'
+		'https://dns.alidns.com/dns-query',  // 阿里 DoH
+		'https://doh.pub/dns-query'  // 腾讯 DoH
 	  ],
 	  'direct-nameserver-follow-policy': false,
       'nameserver': [
-        'https://223.5.5.5/dns-query',
-        'https://119.29.29.29/dns-query'
+        'https://223.5.5.5/dns-query',  // 阿里 DoH
+        'https://119.29.29.29/dns-query'  // 腾讯 DoH
       ],
       'fallback': [
-        'https://8.8.8.8/dns-query',
-        'https://1.1.1.1/dns-query'
+        'https://8.8.8.8/dns-query',  // 谷歌 DoH
+        'https://1.1.1.1/dns-query'  // CloudFlare DoH
       ],
       'fallback-filter': {
         'geoip': true,
