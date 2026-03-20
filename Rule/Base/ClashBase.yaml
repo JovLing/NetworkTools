@@ -1,6 +1,8 @@
 mixed-port: 7890
 external-controller: '0.0.0.0:9090'
 mode: Rule
+cfw-latency-url: 'http://cp.cloudflare.com/generate_204'
+cfw-latency-timeout: 3000
 geodata-mode: true
 geo-auto-update: true
 geo-update-interval: 24
@@ -29,20 +31,26 @@ dns:
     - 'ntp.*.com'
     - 'stun.*.*'
   default-nameserver:
-    - '223.5.5.5'
-    - '119.29.29.29'
-    - '8.8.8.8'
-    - '1.1.1.1'
+    - '223.5.5.5'  # 阿里 DNS
+    - '119.29.29.29'  # 腾讯 DNS
+    - '8.8.8.8'  # 谷歌 DNS
+    - '1.1.1.1'  # CloudFlare DNS
   direct-nameserver:
-    - 'https://dns.alidns.com/dns-query'
-    - 'https://doh.pub/dns-query'
+    - 'https://dns.alidns.com/dns-query'  # 阿里 DoH
+    - 'https://doh.pub/dns-query'  # 腾讯 DoH
   direct-nameserver-follow-policy: false
   nameserver:
-    - '223.5.5.5'
-    - '119.29.29.29'
+    - '223.5.5.5'  # 阿里 DNS
+    - '119.29.29.29'  # 腾讯 DNS
+    - 'https://dns.alidns.com/dns-query'  # 阿里 DoH
+    - 'https://doh.pub/dns-query'  # 腾讯 DoH
   fallback:
-    - '8.8.8.8'
-    - '1.1.1.1'
+    - '8.8.8.8'  # 谷歌 DNS
+    - '1.1.1.1'  # CloudFlare DNS
+    - 'tls://dns.google:853'  # 谷歌 DoT
+    - 'tls://1.0.0.1:853'  # CloudFlare DoT
+    - 'https://dns.google/dns-query'  # 谷歌 DoH
+    - 'https://cloudflare-dns.com/dns-query'  # CloudFlare DoH
   fallback-filter:
     geoip: true
     geoip-code: 'CN'
