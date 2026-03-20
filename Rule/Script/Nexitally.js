@@ -6,6 +6,17 @@ function main(config) {
     'mixed-port': 7890,
     'external-controller': '0.0.0.0:9090',
     'mode': 'Rule',
+	'cfw-latency-url': 'http://cp.cloudflare.com/generate_204',
+	'cfw-latency-timeout': 3000,
+	'geodata-mode': true,
+	'geo-auto-update': true,
+	'geo-update-interval': 24,
+	'geox-url': {
+      'geoip': "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat",
+      'geosite': "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat",
+      'mmdb': "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb",
+      'asn': "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/GeoLite2-ASN.mmdb"
+    },
     'dns': {
       'enable': true,
       'ipv6': false,
@@ -171,7 +182,7 @@ function main(config) {
         "🇯🇵 日本｜⚡AUTO",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO",
-		"DIRECT"
+        "DIRECT"
     ]},
     {
       name: "海外影视｜🐷奶昔",
@@ -185,7 +196,7 @@ function main(config) {
         "🇺🇸 美国｜⚡AUTO"
     ]},
     {
-      name: "海外社交平台｜🐷奶昔",
+      name: "海外媒体｜🐷奶昔",
       icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/SocialContact.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
@@ -216,15 +227,6 @@ function main(config) {
         "🇺🇸 美国-洛杉矶（🏠独享IP）",
         "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
-    ]},
-    {
-      name: "游戏平台｜🐷奶昔",
-      icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Games.png",
-      url: "http://cp.cloudflare.com/generate_204",
-      type: "select",
-      proxies: [
-        "DIRECT",
-        "🇭🇰 香港｜⚡AUTO"
     ]},
     {
       name: "谷歌｜🐷奶昔",
@@ -258,15 +260,13 @@ function main(config) {
         "🇺🇸 美国｜⚡AUTO"
     ]},
     {
-      name: "币圈｜🐷奶昔",
-      icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Crypto.png",
+      name: "游戏平台｜🐷奶昔",
+      icon: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/icon/Media/Games.png",
       url: "http://cp.cloudflare.com/generate_204",
       type: "select",
       proxies: [
-        "🇸🇬 新加坡（🏠独享IP）",
-        "🇺🇸 美国-洛杉矶（🏠独享IP）",
-        "🇸🇬 新加坡｜⚡AUTO",
-        "🇺🇸 美国｜⚡AUTO"
+        "DIRECT",
+        "🇭🇰 香港｜⚡AUTO"
     ]},
     {
       name: "🇭🇰 香港｜⚡AUTO",
@@ -342,7 +342,7 @@ function main(config) {
 
   // 外部规则集
   config['rule-providers'] = {
-    "localhost": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/Rule/localhost.yaml", path: "./rule_set/localhost.yaml", interval: 86400 },
+    "lan": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml", path: "./rule_set/LocalAreaNetwork.yaml", interval: 86400 },
     "telegram": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml", path: "./rule_set/Telegram.yaml", interval: 86400 },
     "github": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Github.yaml", path: "./rule_set/Github.yaml", interval: 86400 },
     "whatsapp": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Whatsapp.yaml", path: "./rule_set/Whatsapp.yaml", interval: 86400 },
@@ -352,49 +352,54 @@ function main(config) {
     "instagram": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Instagram.yaml", path: "./rule_set/Instagram.yaml", interval: 86400 },
     "reddit": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Reddit.yaml", path: "./rule_set/Reddit.yaml", interval: 86400 },
     "twitch": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Twitch.yaml", path: "./rule_set/Twitch.yaml", interval: 86400 },
+    "crypto": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Crypto.yaml", path: "./rule_set/Crypto.yaml", interval: 86400 },
     "ai": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/AI.yaml", path: "./rule_set/AI.yaml", interval: 86400 },
     "tiktok": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/TikTok.yaml", path: "./rule_set/TikTok.yaml", interval: 86400 },
-    "google": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Google.yaml", path: "./rule_set/Google.yaml", interval: 86400 },
-    "apple": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml", path: "./rule_set/Apple.yaml", interval: 86400 },
-    "microsoft": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml", path: "./rule_set/Microsoft.yaml", interval: 86400 },
-    "steam": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Steam.yaml", path: "./rule_set/Steam.yaml", interval: 86400 },
-    "epic": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Epic.yaml", path: "./rule_set/Epic.yaml", interval: 86400 },
-    "xbox": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Xbox.yaml", path: "./rule_set/Xbox.yaml", interval: 86400 },
     "emby": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/JovLing/NetworkTools/net/Rule/Emby.yaml", path: "./rule_set/Emby.yaml", interval: 86400 },
     "netflix": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Netflix.yaml", path: "./rule_set/Netflix.yaml", interval: 86400 },
     "disneyplus": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/DisneyPlus.yaml", path: "./rule_set/DisneyPlus.yaml", interval: 86400 },
     "hbo": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/HBO.yaml", path: "./rule_set/HBO.yaml", interval: 86400 },
-    "crypto": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Crypto.yaml", path: "./rule_set/Crypto.yaml", interval: 86400 },
-    "china_domain": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml", path: "./rule_set/ChinaDomain.yaml", interval: 86400 }
+    "steam": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Steam.yaml", path: "./rule_set/Steam.yaml", interval: 86400 },
+    "epic": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Epic.yaml", path: "./rule_set/Epic.yaml", interval: 86400 },
+    "xbox": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Xbox.yaml", path: "./rule_set/Xbox.yaml", interval: 86400 },
+    "google": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Google.yaml", path: "./rule_set/Google.yaml", interval: 86400 },
+    "apple": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml", path: "./rule_set/Apple.yaml", interval: 86400 },
+    "microsoft": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml", path: "./rule_set/Microsoft.yaml", interval: 86400 },
+    "china_domain": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml", path: "./rule_set/ChinaDomain.yaml", interval: 86400 },
+    "china_ip": { type: "http", behavior: "ipcidr", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaIp.yaml", path: "./rule_set/ChinaIp.yaml", interval: 86400 },
+    "china_ipv6": { type: "http", behavior: "classical", url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaIpV6.yaml", path: "./rule_set/ChinaIpV6.yaml", interval: 86400 }
   };
 
   // 路由规则
   config['rules'] = [
-    "RULE-SET,localhost,DIRECT",
-    "DOMAIN,4c553a36cdfb.qtt-163cdn.com,DIRECT",
+    "RULE-SET,lan,DIRECT",
+    "DOMAIN,cdn.synergypeak.org,DIRECT",  // 🐷奶昔的订阅直链
+    "DOMAIN,4c553a36cdfb.qtt-163cdn.com,DIRECT",  // 🐰优兔的订阅直链
     "RULE-SET,telegram,电报｜🐷奶昔",
-    "RULE-SET,github,海外社交平台｜🐷奶昔",
-    "RULE-SET,whatsapp,海外社交平台｜🐷奶昔",
-    "RULE-SET,discord,海外社交平台｜🐷奶昔",
-    "RULE-SET,twitter,海外社交平台｜🐷奶昔",
-    "RULE-SET,facebook,海外社交平台｜🐷奶昔",
-    "RULE-SET,instagram,海外社交平台｜🐷奶昔",
-    "RULE-SET,reddit,海外社交平台｜🐷奶昔",
-    "RULE-SET,twitch,海外社交平台｜🐷奶昔",
+    "RULE-SET,github,海外媒体｜🐷奶昔",
+    "RULE-SET,whatsapp,海外媒体｜🐷奶昔",
+    "RULE-SET,discord,海外媒体｜🐷奶昔",
+    "RULE-SET,twitter,海外媒体｜🐷奶昔",
+    "RULE-SET,facebook,海外媒体｜🐷奶昔",
+    "RULE-SET,instagram,海外媒体｜🐷奶昔",
+    "RULE-SET,reddit,海外媒体｜🐷奶昔",
+    "RULE-SET,twitch,海外媒体｜🐷奶昔",
+    "RULE-SET,crypto,海外媒体｜🐷奶昔",
     "RULE-SET,ai,AI｜🐷奶昔",
     "RULE-SET,tiktok,TikTok｜🐷奶昔",
-    "RULE-SET,google,谷歌｜🐷奶昔",
-    "RULE-SET,apple,苹果｜🐷奶昔",
-    "RULE-SET,microsoft,微软｜🐷奶昔",
-    "RULE-SET,steam,游戏平台｜🐷奶昔",
-    "RULE-SET,epic,游戏平台｜🐷奶昔",
-    "RULE-SET,xbox,游戏平台｜🐷奶昔",
     "RULE-SET,emby,Emby｜🐷奶昔",
     "RULE-SET,netflix,海外影视｜🐷奶昔",
     "RULE-SET,disneyplus,海外影视｜🐷奶昔",
     "RULE-SET,hbo,海外影视｜🐷奶昔",
-    "RULE-SET,crypto,币圈｜🐷奶昔",
+    "RULE-SET,steam,游戏平台｜🐷奶昔",
+    "RULE-SET,epic,游戏平台｜🐷奶昔",
+    "RULE-SET,xbox,游戏平台｜🐷奶昔",
+    "RULE-SET,google,谷歌｜🐷奶昔",
+    "RULE-SET,apple,苹果｜🐷奶昔",
+    "RULE-SET,microsoft,微软｜🐷奶昔",
     "RULE-SET,china_domain,DIRECT",
+    "RULE-SET,china_ip,DIRECT",
+    "RULE-SET,china_ipv6,DIRECT",
     "GEOSITE,cn,DIRECT",
     "GEOIP,CN,DIRECT",
     "MATCH,节点选择｜🐷奶昔"
