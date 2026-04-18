@@ -254,7 +254,11 @@ function main(config) {
       type: "select",
       proxies: [
         "DIRECT",
-        "🇭🇰 香港｜⚡AUTO",
+        "🇸🇬 新加坡（☁️TCVM）｜📶0.2x倍率",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜📶0.2x倍率",
+        "🇸🇬 新加坡（☁️TCVM）｜⚡AUTO",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜⚡AUTO",
+        "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
     ]},
     {
@@ -264,7 +268,11 @@ function main(config) {
       type: "select",
       proxies: [
         "DIRECT",
-        "🇭🇰 香港｜⚡AUTO",
+        "🇸🇬 新加坡（☁️TCVM）｜📶0.2x倍率",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜📶0.2x倍率",
+        "🇸🇬 新加坡（☁️TCVM）｜⚡AUTO",
+        "🇺🇸 美国-洛杉矶（☁️TCVM）｜⚡AUTO",
+        "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
     ]},
     {

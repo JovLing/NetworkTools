@@ -246,7 +246,9 @@ function main(config) {
       type: "select",
       proxies: [
         "DIRECT",
-        "🇭🇰 香港｜⚡AUTO",
+        "🇸🇬 新加坡（🏠独享IP）",
+        "🇺🇸 美国-洛杉矶（🏠独享IP）",
+        "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
     ]},
     {
@@ -256,7 +258,9 @@ function main(config) {
       type: "select",
       proxies: [
         "DIRECT",
-        "🇭🇰 香港｜⚡AUTO",
+        "🇸🇬 新加坡（🏠独享IP）",
+        "🇺🇸 美国-洛杉矶（🏠独享IP）",
+        "🇸🇬 新加坡｜⚡AUTO",
         "🇺🇸 美国｜⚡AUTO"
     ]},
     {
